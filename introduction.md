@@ -110,13 +110,18 @@ public class ExampleAdd {
 
 - **Javaコード例の動かし方**
   - step 0: プログラミング2用の作業ディレクトリを用意。
-    - ~/prog2 とか各自分かりやすいディレクトリを作成しよう。
+    - 各自分かりやすいディレクトリを作成しよう。授業資料では ``~/prog2/week1`` として話をすすめる。
   - step 1: ソースコードの準備。
-    - ExampleAdd.java というファイル名で上記コードを保存。
-      - **注意点**: 「mainメソッドを含むクラス名」と「ソースファイル名」は同一である必要がある。
-      - 違いを確認するために手打ち推奨。
+    - ExampleAdd.java というファイル名で上記コードを保存。違いを確認するために手打ち推奨。
+    - **注意点**
+      - 「mainメソッドを含むクラス名」と「ソースファイル名」は同一である必要がある。ソースファイルを保存する場所にも注意。
+      - ``package jp.ac.uryukyu.ie.tnal;`` と指定したなら、``~/prog2/week1/src/jp/ac/uryukyu/ie/tnal/`` に保存する必要がある。
+      - 拡張子は必ず ``.java``。
+      - ファイル名は ``public class`` で指定しているクラス名で保存する必要がある。
+        - 今回は ``public class ExampleAdd`` と書いてあるので、``~/prog2/week1/src/jp/ac/uryukyu/ie/tnal/ExampleAdd.java`` として保存する必要がある。
   - step 2: コンパイル。
-    - ターミナル上で ``javac -d . ExampleAdd.java``と実行。エラーが無ければ「ExampleAdd.class」という名前のバイトコードが生成される。
+    - 以下は手動でやる場合の話。VSCodeでやるなら Run するだけ。
+    - ターミナル上で ``javac -d . src/jp/ac/uryukyu/ie/tnal/ExampleAdd.java``と実行。エラーが無ければ「ExampleAdd.class」という名前のバイトコードが生成される。
       - バイトコードが生成される場所は、パッケージ名をディレクトリ名に変換した先。
       - 例えば、パッケージ名＝jp.ac.uryukyu.ie.tnalの場合、「./jp/ac/uryukyu/ie/tnal/」の下に「ExampleAdd.class」が生成される。
       - findコマンドで確認してみよう。（ターミナルで ``find .`` を実行）
@@ -125,6 +130,7 @@ public class ExampleAdd {
       - Java等のコンパイラ言語では、コンパイルで失敗する（＝文法エラー）と、実行そのものができない。
     - 「-d .」は、指定した場所（.=カレント・ディレクトリ）を基準にしてバイトコードを生成するオプション。
   - step 3: 実行。
+    - 以下は手動でやる場合の話。VSCodeなら Run するだけ。
     - ターミナル上で ``java パッケージ名.ExampleAdd`` と実行。
       - 私の場合は「java jp.ac.uryukyu.ie.tnal.ExampleAdd」になる。
         - 長ったらしいが、 **tabキーによる入力補完** を使えば楽。
