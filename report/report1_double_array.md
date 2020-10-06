@@ -74,7 +74,7 @@
 
 ### <a name="level1">Level 1: printMatrixメソッドについて調べよう。</a>
 - Level 1.1, 二重配列の並びについて確認しよう。
-  - 引数matrixは二重配列として宣言されている。同様にmainメソッドには2行2列の行列のつもりで二重配列で記述した matrix22_1, matrix22_2。2行3列の matrix_23_1, matrix23_2 が用意されている。このmainメソッドで ``printMatrix(matrix23_2);`` として呼び出された状況について、以下の問いに答えよ。なお配列サイズの範囲外を参照している場合には ``IndexOutOfBoundsException`` と答えよ。
+  - 引数matrixは二重配列として宣言されている。同様にmainメソッドには2行2列の行列のつもりで二重配列で記述した matrix22_1, matrix22_2。3行2列の matrix_23_1, matrix23_2 が用意されている。このmainメソッドで ``printMatrix(matrix23_2);`` として呼び出された状況について、以下の問いに答えよ。なお配列サイズの範囲外を参照している場合には ``IndexOutOfBoundsException`` と答えよ。
     - (a) printMatrixメソッド内で ``matrix[0][0]`` に保存されている値は何か。
     - (b) printMatrixメソッド内で ``matrix[1][1]`` に保存されている値は何か。
     - (c) printMatrixメソッド内で ``matrix[2][2]`` に保存されている値は何か。
