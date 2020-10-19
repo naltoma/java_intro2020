@@ -60,7 +60,7 @@ src/jp/ac/uryukyu/ie/tnal/library/RentalLog.java
   - バーコード: int barcode;
 - コード例1
 
-```
+```Java
 // RentalBook.java
 package jp.ac.uryukyu.ie.tnal.library;
 
@@ -127,7 +127,7 @@ public class Main {
   - 氏名: String name;
 - コード例2
 
-```
+```Java
 // Member.java
 package jp.ac.uryukyu.ie.tnal.library;
 
@@ -176,7 +176,7 @@ public class Main {
   - 返却フラグ: boolean returned;
 - コード例3
 
-```
+```Java
 // RentalLog.java
 package jp.ac.uryukyu.ie.tnal.library;
 
