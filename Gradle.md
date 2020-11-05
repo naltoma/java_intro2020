@@ -170,9 +170,9 @@ BUILD SUCCESSFUL in 1m 4s
 - ``app/build.gradle`` を選択し、3箇所編集する。
   - 1箇所目: mainメソッドのあるクラスを指定。（**コマンドラインだけから実行する場合には、この修正は不要。**）
     - 32行目を以下のように修正。
-    　- 旧: ``mainClass = 'jp.ac.uryukyu.ie.tnal.App'``
-    　- 新: ``mainClassName = 'jp.ac.uryukyu.ie.tnal.App'``
-    　- mainClassをmainClassNameに修正しよう。
+      - 旧: ``mainClass = 'jp.ac.uryukyu.ie.tnal.App'``
+      - 新: ``mainClassName = 'jp.ac.uryukyu.ie.tnal.App'``
+      - mainClassをmainClassNameに修正しよう。
   - 2箇所目: sourceCompatibilityの設定。
     - どのJDKから対応しているのかを明示するための設定。Javaに限らず多くのプログラミング言語は可能な範囲で後方互換性を保とうとするが、新版で追加された機能を用いたコードは古いJDKでは動作しない。今回は ``10`` にしよう。
     - 新: ``sourceCompatibility = 10`` を8行目あたりに追記。
