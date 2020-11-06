@@ -87,8 +87,8 @@ Host github.com
 ### <a name="step1">step 1: 現状</a>
 - [演習2: クラス実装に慣れよう](https://github.com/naltoma/java_intro2020/blob/master/ex/ex2_classcoding.md)の演習2_8途中まで（アクセス制限加える所まで）やり終えた。
   - コード例
-    - [Chatbot.java](./src/weeek4/src_before/Chatbot.java)
-    - [Main.java](./src/weeek4/src_before/Main.java)
+    - [Chatbot.java](./src/week4/src_before/Chatbot.java)
+    - [Main.java](./src/week4/src_before/Main.java)
 - この時点での状況。
   - 作業ディレクトリを ``~/prog2/week4/`` とすると、ファイル配置は以下のようになっているはずだ。作業ディレクトリは適宜読み替えること。
 
