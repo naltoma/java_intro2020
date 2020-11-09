@@ -24,6 +24,7 @@
     - <a href="#step9">step 9: 修正したコードを add, commit, push する。</a>
     - <a href="#step10">step 10: 演習2_9に対するコード修正。</a>
     - <a href="#step11">step 11: 修正したコードを add, commit, push する。</a>
+    - <a href="#option3">おまけ: GitHub向けにpushする都度パスワードを聞かれる場合</a>
   - <a href="#sources">演習2の回答コード例</a>
 
 <hr>
@@ -322,6 +323,12 @@ index 2a58389..8b77fb0 100644
 ### <a name="step11">step 11: 修正したコードを add, commit, push する。</a>
 - 演習2_9の修正を行い動作確認できたら、修正したファイルを add, commit, push しよう。
 - ブラウザ上で変更履歴を眺めてみよう。
+
+<hr>
+
+### <a name="option3">おまけ: GitHub向けにpushする都度パスワードを聞かれる場合</a>
+- [githubでユーザー名とパスワードを毎回聞かれる問題解消](https://qiita.com/non0311/items/03e3e7a042f70f072286)を参考に ``git remote set-url origin`` を調整しよう。
+  - 當間自身はhttpsのままで問題ないが一部（全員？）学生からはパスワードを毎回求められるという話が届いています。
 
 <hr>
 
