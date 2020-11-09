@@ -175,7 +175,7 @@ BUILD SUCCESSFUL in 1m 4s
       - mainClassをmainClassNameに修正しよう。
   - 2箇所目: sourceCompatibilityの設定。
     - どのJDKから対応しているのかを明示するための設定。Javaに限らず多くのプログラミング言語は可能な範囲で後方互換性を保とうとするが、新版で追加された機能を用いたコードは古いJDKでは動作しない。今回は ``10`` にしよう。
-    - 新: ``sourceCompatibility = 10`` を8行目あたりに追記。
+    - 新: ``sourceCompatibility = 10`` を13行目以降に追記。少なくとも plugins を指定しているブロックの後ろに書こう。
   - 3箇所目: JARファイル生成する際の設定。
     - ファイルの最後尾に下記を追加して保存。
     - パッケージ名は適宜修正すること。
