@@ -16,7 +16,7 @@
   - 継承する際の元となるクラスのこと。親クラスや基底クラスとも呼ばれる。
   - final修飾子を付けられたクラスは継承することができない。例えばString型（[java.lang.String](https://docs.oracle.com/en/java/javase/14/docs/api/java.base/java/lang/String.html)）は ``public final class String`` となっているため、Stringクラスを継承することはできない。
 - サブクラス（sub class）
-  - スーパークラスを継承して作成したクラスのこと。子クラスとも呼ばれる。サブクラスは、スーパークラスの実装（フィールド、コンストラクタ、メソッド）を全て引き継いだクラスとなる。実装を追加するだけではなく、引き継いだ実装を上書き（overload）することもできる。
+  - スーパークラスを継承して作成したクラスのこと。子クラスとも呼ばれる。サブクラスは、スーパークラスの実装（フィールド、コンストラクタ、メソッド）を全て引き継いだクラスとなる。実装を追加するだけではなく、引き継いだ実装を上書き（override）することもできる。
   - 継承する際には **extends** を使う。例えばString型（[java.lang.String](https://docs.oracle.com/en/java/javase/14/docs/api/java.base/java/lang/String.html)）は ``extends Object`` となっており、Objectクラスを継承して実装されていることがわかる。
 
 <hr>
