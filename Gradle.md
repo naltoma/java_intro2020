@@ -382,6 +382,7 @@ BUILD FAILED in 1s
     - .project
     - .settings/
     - .vscode/
+    - app/build.gradle
 - 手順
   - ローカルディレクトリをGit管理下にする。
     - ``git init``
