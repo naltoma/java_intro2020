@@ -1,5 +1,6 @@
 # 演習3: Git, GitHubに慣れよう
 - 参考
+  - [Git-it (Desktop App)](https://github.com/jlord/git-it-electron)
   - [Git Book](https://git-scm.com/book/ja/v2)　＊公式本
   - [Grogate](https://prog-8.com/languages/git)　＊演習
   - [サル先生のGit入門](http://www.backlog.jp/git-guide/)
