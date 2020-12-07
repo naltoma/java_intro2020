@@ -75,9 +75,9 @@
       - 動作確認
         - Main.javaのheroをWarriorクラスのオブジェクトwarriorに変更し、hero.attackをwarrior.attackWithWeponSkillに変更し、動作確認しよう。
 - テスト
-  - HeroTest.javaを用意し、下記内容をテストするコードを書け。
+  - WarriorTest.javaを用意し、下記内容をテストするコードを書け。
   - テスト内容
-    - 「Heroクラスからオブジェクトを生成し、attackWithWeponSkillを3回実行し、3回ともattackの150%ダメージになっていることを確認する」
+    - 「Warriorクラスからオブジェクトを生成し、attackWithWeponSkillを3回実行し、3回ともattackの150%ダメージになっていることを確認する」
 - レポート報告事項
   - (1) テストコードをそのまま掲載。
   - (2) gradle test の結果。
