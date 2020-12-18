@@ -5,6 +5,8 @@
     - [デバッグ実行入門](https://ie.u-ryukyu.ac.jp/~tnal/2020/prog1/vscode.pdf)
     - [VS Codeによるデバッグ演習2（Irisデータセットの集計）](https://github.com/naltoma/python_intro/blob/master/IDE-vsvode-debug-iris.md)
     - [Chapter 6 Testing and Debugging（テストとデバッグ）の補足](https://github.com/naltoma/python_intro/blob/master/Testing_and_Debugging.md)
+  - VSCodeドキュメント
+    - [Using VS Code to Debug Java Applications](https://code.visualstudio.com/blogs/2017/09/28/java-debug)
 - ＜目次＞
   - <a href="#intro">概要</a>
   - <a href="#flow">デバッガの基本操作</a>
