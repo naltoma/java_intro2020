@@ -16,7 +16,7 @@
   - Java Extension Packをインストール。
     - ``⌘⇧x`` を押して Extensions ビューを開く。
     - 検索窓に ``java`` と入力。
-    - 検索結果の上部に出てくる ``Java Extension Pack`` をインストール。
+    - 検索結果の上部に出てくる ``Extension Pack for Java`` をインストール。インストール済みならそのままでOK。
 
 <hr>
 
@@ -39,12 +39,13 @@
     - 作成ミスしたり、お試し作成したり等の理由で不要になったプロジェクトがあれば、FinderなりTerminalなりで該当プロジェクトを削除しよう。削除する際には誤って本来は残しておきたかったものを削除しないように注意。
 - 作成されたプロジェクトを確認。
   - 以下のようにディレクトリ、ファイルが作成されていればOK。
-  - ``README.md`` は、プロジェクト全体に関するドキュメントを **Markdown記法** で記述したテキストファイル。
-    - [Markdownとは](http://www.markdown.jp/what-is-markdown/)
-    - [基本的な書き方とフォーマットの構文 / GitHubでの執筆](https://docs.github.com/ja/github/writing-on-github/basic-writing-and-formatting-syntax)
+  - ``.vscode/`` は、VSCode設定関連の置き場所。
   - ``lib`` は library の略。
   - ``src`` は source (soucr file) の略で、ソースファイル一式を置く場所。
   - ``src/App.java`` は、プログラム初期作成時に自動で用意してくれたテンプレート。
+  - ``README.md`` は、プロジェクト全体に関するドキュメントを **Markdown記法** で記述したテキストファイル。
+    - [Markdownとは](http://www.markdown.jp/what-is-markdown/)
+    - [基本的な書き方とフォーマットの構文 / GitHubでの執筆](https://docs.github.com/ja/github/writing-on-github/basic-writing-and-formatting-syntax)
 
 ```zsh
 (base) oct:tnal% pwd
@@ -57,11 +58,14 @@ src/
 .
 ./README.md
 ./lib
+./.vscode
+./.vscode/settings.json
 ./src
 ./src/App.java
 ```
 
 - プログラムの実行。
+  - 実行したいソースファイルを開く。今回は ``src/App.java`` を開こう。
   - Run メニューから ``Run without debugging（デバッグなし実行）`` を選択。問題なければターミナルに ``Hello world!`` と出力されるはず。
 - ソースコードの一部修正。
   - 3行目の ``System.out.println()`` の中身を変更して、動作確認してみよう。
@@ -82,10 +86,11 @@ src/
     - 考え方
       - パッケージ指定があるソースファイルはそのパッケージフォルダの中に置く必要がある。今回のケースだと、``jp.ac.uryukyu.ie.tnal`` に属するソースファイルを作成したいならば、``jp/ac/uryukyu/ie/tnal`` 以下に置く必要がある。
       - 今回は、用意したパッケージに属する ``Week1.java`` というファイルを作成するとしよう。
-    - 作成したパッケージ名を ``ctrl + click`` してサブメニューを出す。
-    - ``New File`` を選択。
-    - ``Week1.java`` と入力して新規作成する。
-      - この時点で自動的に ``package jp.ac.uryukyu.ie.tnal;`` というパッケージ設定文が入力されているはず。
+    - 作業手順
+      - 作成したパッケージ名の右端（上記例だと ``tnal`` や、その右側）を ``ctrl + click`` してサブメニューを出す。
+      - ``New File`` を選択。
+      - ``Week1.java`` と入力して新規作成する。
+        - この時点で自動的に ``package jp.ac.uryukyu.ie.tnal;`` というパッケージ設定文が入力されているはず。
 - ソースファイルの編集。
   - ``Week1.java`` を以下のように編集しよう。1〜3行目は既に記述されているはずなので、4行目から始まるmain関数を手打ちで入力してみよう。
   - いろいろと補完機能がある。
@@ -105,7 +110,8 @@ public class Week1 {
 <hr>
 
 ## <a name="summary">振り返り</a>
-- 新規プロジェクト作成、ソースコードを修正して実行するという流れを意識しよう。
+- Pythonでは基本的に「ソースファイルを編集して実行する」だけだった。
+- これに対し、Javaでは「プロジェクト」というまとまりで開発を進めることになる。複数のプロジェクト群をまとめて置く場所を指定し、その後で新規プロジェクト作成し（もしくは過去に作成したプロジェクトを開き)、その上でソースコードを修正して実行するという流れを意識しよう。
 
 <hr>
 
