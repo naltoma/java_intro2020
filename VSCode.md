@@ -12,11 +12,7 @@
 - vscodeのインストール。
   - [公式サイト]から自身のOS版をダウンロードし、インストール。
 - vscodeを起動。
-- 追加設定。
-  - Java Extension Packをインストール。
-    - ``⌘⇧x`` を押して Extensions ビューを開く。
-    - 検索窓に ``java`` と入力。
-    - 検索結果の上部に出てくる ``Extension Pack for Java`` をインストール。インストール済みならそのままでOK。
+- [ここを参照](./VSCode-env.md)して追加設定。
 
 <hr>
 
