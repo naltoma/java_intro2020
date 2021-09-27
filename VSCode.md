@@ -1,18 +1,9 @@
 # Visual Studio Code での開発の流れ
 - ＜目次＞
-  - <a href="#env">環境構築</a>
   - <a href="#ex1">動作確認</a>
   - <a href="#ex2">packageの設定</a>
   - <a href="#summary">振り返り</a>
   - <a href="#ref">参考文献</a>
-
-<hr>
-
-## <a name="env">環境構築</a>
-- vscodeのインストール。
-  - [公式サイト]から自身のOS版をダウンロードし、インストール。
-- vscodeを起動。
-- [ここを参照](./VSCode-env.md)して追加設定。
 
 <hr>
 
