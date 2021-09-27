@@ -29,7 +29,7 @@ VSCodeが何かしら過去コードを開いているならばそのウィン�
 
 ![その他を選ぶ](./figs/vscode-1-welcome.png)
 
-上図の通り、新規ウィンドウには「ようこそ」が開いているはずだ。ここから右下の「その他」をクリックしよう。
+上図の通り、新規ウィンドウには「ようこそ」が開いているはずだ。ここから右下の「その他」をクリックしよう。もし「その他」が出てこないなら、``⌘ + Shift + P`` を押してコマンドパレットを開き、``java``と入力。そこから``Java: Configure Java Runtime`` を選ぼう。選んだら<a name="#configure">configure画面</a>から続けよう。
 
 ![Dive into Java Development](./figs/vscode-2-welcome2.png)
 
@@ -39,6 +39,7 @@ VSCodeが何かしら過去コードを開いているならばそのウィン�
 
 Dive into Java Development画面に移動したら、「Get your Java runtime ready」にチェックを入れ、``Configure Java Runtime`` をクリックしよう。
 
+<a name="configure"></a>
 ![Download](./figs/vscode-4-configure1.png)
 
 上図画面になったら、「OpenJDK 16 (Latest)」にチェックを入れ、``Download`` をクリックしよう。ブラウザが立ち上がり、ダウンロードページに遷移するので、そこからOpenJDK 16をダウンロードしよう。ファイルサイズは約200MBあるのでダウンロード完了するまで待とう。
