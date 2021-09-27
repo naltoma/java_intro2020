@@ -29,7 +29,12 @@ VSCodeが何かしら過去コードを開いているならばそのウィン�
 
 ![その他を選ぶ](./figs/vscode-1-welcome.png)
 
-上図の通り、新規ウィンドウには「ようこそ」が開いているはずだ。ここから右下の「その他」をクリックしよう。もし「その他」が出てこないなら、``⌘ + Shift + P`` を押してコマンドパレットを開き、``java``と入力。そこから``Java: Configure Java Runtime`` を選ぼう。選んだら<a href="#configure">configure画面</a>から続けよう。
+上図の通り、新規ウィンドウには「ようこそ」が開いているはずだ。ここから右下の「その他」をクリックしよう。
+- **「その他」が出てこない場合**。（出てくる場合はこのサブツリーは無視して、次の画面に移動してください）
+  - 左下の歯車アイコンクリックして、「拡張機能(Extension)」を選択。
+  - 検索窓に「java」と入力して「Extension Pack for Java」を探す。見つかったら選択して、インストール。
+  - インストール終わったらVSCodeを再起動。
+  - ``⌘ + Shift + P`` を押してコマンドパレットを開き、``java``と入力。そこから``Java: Configure Java Runtime`` を選ぼう。選んだら<a href="#configure">configure画面</a>から続けよう。
 
 ![Dive into Java Development](./figs/vscode-2-welcome2.png)
 
