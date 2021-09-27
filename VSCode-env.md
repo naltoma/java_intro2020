@@ -29,7 +29,7 @@ VSCodeが何かしら過去コードを開いているならばそのウィン�
 
 ![その他を選ぶ](./figs/vscode-1-welcome.png)
 
-上図の通り、新規ウィンドウには「ようこそ」が開いているはずだ。ここから右下の「その他」をクリックしよう。もし「その他」が出てこないなら、``⌘ + Shift + P`` を押してコマンドパレットを開き、``java``と入力。そこから``Java: Configure Java Runtime`` を選ぼう。選んだら<a name="#configure">configure画面</a>から続けよう。
+上図の通り、新規ウィンドウには「ようこそ」が開いているはずだ。ここから右下の「その他」をクリックしよう。もし「その他」が出てこないなら、``⌘ + Shift + P`` を押してコマンドパレットを開き、``java``と入力。そこから``Java: Configure Java Runtime`` を選ぼう。選んだら<a href="#configure">configure画面</a>から続けよう。
 
 ![Dive into Java Development](./figs/vscode-2-welcome2.png)
 
