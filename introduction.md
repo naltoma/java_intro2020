@@ -49,6 +49,7 @@
 - リファレンスを参照することができる。
 
 <hr>
+
 ## <a name="java_features">プログラミング1を踏まえたJavaの特徴</a>
 
 ### <a name="compiler_interpreter">コンパイラ言語の中でも変わった位置づけのJava言語</a>
