@@ -233,14 +233,14 @@ public class ExampleAdd {
 <hr>
 
 ### <a name="ex1-2">マニュアルの使い方</a>
-- オンラインAPI: [Java SE 14 & JDK 14 API Documentation](https://docs.oracle.com/en/java/javase/14/docs/api/index.html)
+- オンラインAPI: [Java SE 16 & JDK 16 API Documentation](https://docs.oracle.com/en/java/javase/16/docs/api/index.html)
 - System.out.println()メソッドについて調べてみよう。
   - 左メニューの「API Documentation」を選択。
   - 試しに、右上の検索窓に「system」を入力。
     - systemを含む文字列が大量に列挙される。
   - この中から該当メソッドについて探すのは難しそうなので、続けて「system.out」まで入力してみよう。
     - 「java.out.System.out」だけが残るので、このページを選択してみよう。
-    - この時点で [public static final PrintStream out](https://docs.oracle.com/en/java/javase/14/docs/api/java.base/java/lang/System.html#out) のページが参照できるはず。
+    - この時点で [public static final PrintStream out](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/System.html#out) のページが参照できるはず。
   - 調べているものは「System.out.println()」だが、見つかったのは「public static final PrintStream out」とかいう謎のページだ。だが、このページ内には「System.out.println(data)」とも書かれている。
     - この良くわからない状況を俯瞰するため、このページのトップに遡ってみよう。
   - **Class System（Systemクラス）**
@@ -251,7 +251,7 @@ public class ExampleAdd {
     - ここにSystem.outの概要と、outフィールドが持つ関連メソッドが列挙されている。
     - 今回の例だと、println()の中身は文字列（String型）となるため、「PrintStream.println(java.lang.String)」をクリック。
   - PrintStream.println(java.lang.String)
-    - 正しく参照できているなら「[public void println​(String x)のページ](https://docs.oracle.com/en/java/javase/14/docs/api/java.base/java/io/PrintStream.html#println\(java.lang.String\))」が参照できているはず。
+    - 正しく参照できているなら「[public void println​(String x)のページ](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/io/PrintStream.html#println\(java.lang.String\))」が参照できているはず。
     - これがSystem.out.println()の具体的な説明。
 - **Javaのドキュメントは、一つの機能に関する説明が様々なページに散らばっている。これを探して読み取れるようになろう。**
 
@@ -586,8 +586,8 @@ public class Main {
 
 ## <a name="ref">参考サイト</a>
 - 公式ドキュメント
-  - APIドキュメント: [Java SE 14 & JDK 14 API Documentation](https://docs.oracle.com/en/java/javase/14/docs/api/index.html)
-    - ドキュメント(言語仕様等): [JDK 14 Documentation](https://docs.oracle.com/en/java/javase/14/)
+  - APIドキュメント: [Java SE 16 & JDK 16 API Documentation](https://docs.oracle.com/en/java/javase/16/docs/api/index.html)
+    - ドキュメント(言語仕様等): [JDK 16 Documentation](https://docs.oracle.com/en/java/javase/16/)
     - ダウンロードも可能。チュートリアルやサンプルコードも多数。
 - Java動画学習
   - [Progate: Java I, II](https://prog-8.com/languages/java)（初めてプログラミングする人向けの解説＋簡易問題のあるサイト。webサイト上で実行もできるので、一歩ずつ確認していきたい人には向いてます。）
