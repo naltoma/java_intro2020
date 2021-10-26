@@ -33,17 +33,16 @@
 ## <a name="env">事前にやる環境構築</a>
 - Gradle
   - ターミナルから ``brew install gradle`` を実行。
-  - ``gradle --version`` と実行して ``Gradle 6.7`` 以上になってるならOK。古い人は更新（``brew upgrade gradle``）しておこう。
+  - ``gradle --version`` と実行して ``Gradle 7.2`` 以上になってるならOK。古い人は更新（``brew upgrade gradle``）しておこう。
   - VSCode上でのGUIも使いたい人は、Extensionから ``Gradle Tasks`` もインストールしよう。授業では使いません。
 - JUnit 5
   - 既にインストール済みを想定。何らかの理由で環境再構築が必要な人は下記を参照。
     - IntelliJ利用者は[2019年作成した資料](https://github.com/naltoma/java_intro/blob/master/IntelliJ%2BJUnit.md)を参考にしよう。
-    - VSCode利用者は[Visual Studio Code での開発の流れ](https://github.com/naltoma/java_intro2020/blob/master/VSCode.md)を参考に、``Extension Pack for Java`` をインストールしよう。
+    - VSCode利用者は[VSCodeの環境構築](https://github.com/naltoma/java_intro2020/blob/master/VSCode-env.md)を参考に、``Extension Pack for Java`` をインストールしよう。
 - 動作確認した環境情報
-  - macOS 11.5.2
-  - javac 16.0.1
+  - macOS 11.6
+  - javac 16.0.2
   - gradle 7.2
-    - Groovy 3.0.8
 
 <hr>
 
