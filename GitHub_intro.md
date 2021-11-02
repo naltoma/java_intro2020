@@ -200,15 +200,14 @@ nothing added to commit but untracked files present (use "git add" to track)
   - Project description に ``プログラミング2、クラスからオブジェクト生成する練習`` ぐらいの説明を書いておく。
   - 「public」にする。
   - 「Create project」をクリック。
-    - 生成されたプロジェクトページにある、「https」右側のリンクをクリックし、コピー。
-      - 當間の場合 ``https://github.com/naltoma/prog2_week4.git`` になる。これがリポジトリへ作業するためのURLで、Git URLと呼ばれる。
+  - ベアリポジトリが作成されたら、背景青色の Quick setup 欄にて ``SSH`` タブをクリックしよう。これでリポジトリ先が ``git@gitlab:アカウント名/リポジトリ名.git`` になっているはずだ。
 
 <hr>
 
 ## ローカルPCでの作業
 ### <a name="step6">step 6: ベアリポジトリへ push する。</a>
 - ローカルリポジトリにはまだどこをベアリポジトリとするかを伝えていないため、push先を把握していない。まずはベアリポジトリを設定し、その後で push しよう。
-  - ベアリポジトリを設定するためには ``git remote add origin GitURL`` とする。GitURLは先程コピーした Git URL に置き換えて実行しよう。以下は當間の例。
+  - ベアリポジトリを設定するためには ``git remote add origin GitURL`` とする。具体的な中身はGitHubのベアリポジトリページ、下段3行の1行目に書かれている。以下は當間の例。
 - 補足
   - ``git remote -v`` は、ベアリポジトリを確認している。1回目の実行では未設定のため何も出力されていない。
   - ``git remote add origin GitURL`` でベアリポジトリを設定。
@@ -217,6 +216,8 @@ nothing added to commit but untracked files present (use "git add" to track)
   - git push -u origin master を実行した際にエラーがなければ、pushが成功しているはずだ。
 
 ```shell
+# 以下は https を指定しているが、sshタブで指定されたURLを使おう。
+
 (base) oct:tnal% git remote -v
 (base) oct:tnal% git remote add origin https://github.com/naltoma/prog2_week4.git
 (base) oct:tnal% git remote -v
