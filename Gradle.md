@@ -202,20 +202,32 @@ jar {
 ### <a name="step4-1">step 4-1: サンプルコードの用意。</a>
 - コード概要
   - 「名前、HP、攻撃力」を持つHeroクラスとEnemyクラスを用意した。Mainクラスではこれらからオブジェクトを生成し、どちらかが倒れるまで攻撃し合う。
-  - クラス図
 - コード配置
   - packageの外（``app/src/main/java/``）に置くコード
     - [Main.java](./src/hero_enemy/Main.java)
   - packageの中（``app/src/main/java/{package_directory}/``）に置くコード
     - [Hero.java](./src/hero_enemy/Hero.java)
     - [Enemy.java](./src/hero_enemy/Enemy.java)
+- サンプルコードを用意する手順。
+  - Hero.java, Enemy.java, Main.java の3つを適切に配置するために下記コマンドを実行しよう。**なお、mvコマンドではパッケージ名を指定してファイルを移動しているため、``tnal`` を ``自身のアカウント`` に修正して実行すること。**
+    ```shell
+    # ~/prog2/ex-gradle に移動し、
+    # gradle init した後で実行することを想定。
+
+    curl -O https://raw.githubusercontent.com/naltoma/java_intro2020/master/src/hero_enemy/Main.java
+    mv Main.java app/src/main/java/
+    curl -O https://raw.githubusercontent.com/naltoma/java_intro2020/master/src/hero_enemy/Hero.java
+    mv Hero.java app/src/main/java/jp/ac/uryukyu/ie/tnal/
+    curl -O https://raw.githubusercontent.com/naltoma/java_intro2020/master/src/hero_enemy/Enemy.java
+    mv Enemy.java app/src/main/java/jp/ac/uryukyu/ie/tnal/
+    ```
 - 補足
   - packageは適宜修正すること。
   - コード配置後のディレクトリ構成は以下のようになっているはず。packageディレクトリは適宜読み替えること。
 
 ```shell
 oct:tnal% pwd
-/Users/tnal/vscode/ex-gradle
+/Users/tnal/prog2/ex-gradle
 
 oct:tnal% tree app/src/main/
 
