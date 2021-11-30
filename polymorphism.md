@@ -29,9 +29,9 @@ class Member{
     public Member(String _name){
         this.name = _name;
     }
-    public String getName(){ return this.name + "さん"; }
+    public String getName(){ return this.name; }
     public void sayHello(){
-        System.out.println("いらっしゃいませ" + getName());
+        System.out.println("いらっしゃいませ" + getName() + "さん");
     }
 }
 
