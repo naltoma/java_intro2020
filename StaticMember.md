@@ -32,26 +32,16 @@
   - newせずに手軽に呼び出すため。（教科書, p.550）
 - 理由2
   - newではなく静的メソッドを使ってインスタンスを生成するため。（同上）
-  - 例: [java.util.ArrayList.iterator()](https://docs.oracle.com/en/java/javase/14/docs/api/java.base/java/util/ArrayList.html#iterator())
+  - 例: [String.valueOf()](https://docs.oracle.com/en/java/javase/14/docs/api/java.base/java/lang/String.html#valueOf(int))
 
 ```Java
 // newなしでオブジェクト生成する例
 
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Iterator;
-
 public class Sample {
     public static void main(String[] args){
-        List<String> list = new ArrayList<String>();
-        list.add("item1");
-        list.add("item2");
-        list.add("item3");
-
-        Iterator iterator = list.iterator(); // newなしでオブジェクト生成
-        while(iterator.hasNext()){
-            System.out.println(iterator.next());
-        }
+      int i = 123;
+      String s = String.valueOf(i);
+      System.out.println(s);
     }
 }
 ```
