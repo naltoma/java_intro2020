@@ -112,7 +112,7 @@ public class クラス名 {
 
 **クラス名やメソッド名にはいくつかのルールがある**。
 - クラス名
-  - ``public class`` として指定できるクラス名は1つのみ。publicなしのclassは複数記述可能。
+  - 1つのファイル内に ``public class`` として指定できるクラス名は1つのみ。publicなしのclassは複数記述可能。
   - public class として指定したクラス名と全く同じファイル名にする必要がある。例えば ``public class App`` ならば、そのファイル名は ``App.java`` とする必要がある。
   - 慣習的に、クラス名の頭文字は大文字にしよう。それ以外のケース（メソッド名、変数名）では大文字から始めるのを避けよう。
     - 単語を複数並べる場合には ``GameController`` のように、各単語の頭文字を大文字にして繋げよう。
@@ -170,9 +170,13 @@ public class ExampleAdd {
         - 今回は ``public class ExampleAdd`` と書いてあるので、``~/prog2/week1/src/jp/ac/uryukyu/ie/tnal/ExampleAdd.java`` として保存する必要がある。
   - step 2: コンパイル。
     - 以下は手動でやる場合の話。VSCodeでやるなら Run するだけ。
-    - ターミナル上で ``javac -d . src/jp/ac/uryukyu/ie/tnal/ExampleAdd.java``と実行。エラーが無ければ「ExampleAdd.class」という名前のバイトコードが生成される。
-      - バイトコードが生成される場所は、パッケージ名をディレクトリ名に変換した先。
-      - 例えば、パッケージ名＝jp.ac.uryukyu.ie.tnalの場合、「./jp/ac/uryukyu/ie/tnal/」の下に「ExampleAdd.class」が生成される。
+    - ターミナル上では、まずプロジェクトトップディレクトリに移動する。次に、 ``javac -d . src/jp/ac/uryukyu/ie/tnal/ExampleAdd.java``と実行。これがコンパイルに相当する。エラーが無ければ「ExampleAdd.class」という名前のバイトコードが生成される。
+      - バイトコードが生成される場所は、
+        - VSCodeでの実行ならば ``bin/`` 以下に、パッケージ名をディレクトリ名に変換した先になる。
+        - ターミナル上で手動コンパイルしたならば、直接プロジェクトディレクトリ以下に、パッケージ名をディレクトリ名に変換した先になる。
+        - 例えば、パッケージ名＝jp.ac.uryukyu.ie.tnalの場合、
+          - VSCodeで実行すると「./bin/jp/ac/uryukyu/ie/tnal/」の下に「ExampleAdd.class」が生成される。
+          - ターミナル上で手動コンパイルすると「jp/ac/uryukyu/ie/tnal/」の下に「ExampleAdd.class」が生成される。
       - findコマンドで確認してみよう。（ターミナルで ``find .`` を実行）
     - コンパイル時にエラーが出たら、そのエラーが無くなるまで修正する必要あり。
       - PythonではSyntaxErrorがある場合でもその直前までは実行できる。
@@ -202,6 +206,7 @@ public class ExampleAdd {
     - **クラス名の命名規則は「英単語の組み合わせ＋各単語の1文字目を大文字に」。アンダースコア _ は使わない。**
   - ``public static void main(String[] args) {〜〜〜}``
     - Javaでは関数とは呼ばずにメソッドと呼ぶ。
+      - 厳密には関数とメソッドは異なるが、その違いは後日説明する。
       - **mainメソッド** は、Pythonでいうところの「[if __name__ == '__main__':](https://github.com/naltoma/python_intro/blob/master/Others.md#__name__)」に相当。
       - 実行するコードは、mainメソッド内に書く必要がある。main()メソッドの外にあるコードは、main()メソッドから呼ばれた時だけ実行される。（main()メソッドからしか実行されない）
     - **メソッドは戻り値の型を指定する必要がある。**
