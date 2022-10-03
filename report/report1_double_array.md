@@ -28,15 +28,16 @@
 
 ```Java
     public static void main(String[] args){
-        double[][] matrix22_1 = {{0., 1.}, {2., 3.}};
-        double[][] matrix22_2 = {{4., 5.}, {6., 7.}};
-        double[][] matrix23_1 = {{0., 1.}, {2., 3.}, {4., 5.}};
+        double[][] matrix22_1 = {{0., 2.}, {4., 6.}};
+        double[][] matrix22_2 = {{1., 2.}, {3., 4.}};
+        double[][] matrix23_1 = {{0., 1.}, {2., 3.}, {4., 10.}};
         double[][] matrix23_2 = {{6., 7.}, {8., 9.}, {10., 11.}};
 
         System.out.println("\n# printMatrixの動作確認");
         printMatrix(matrix22_1);
 
         //以下は computeAddMatrix メソッドを実装したあとで実行する内容。
+        //最初の動作確認時にはコメントアウトしておくと良い。
         System.out.println("\n# matrix22_1 + matrix22_2");
         double[][] level2_1 = computeAddMatrix(matrix22_1, matrix22_2);
         printMatrix(level2_1);
@@ -54,17 +55,17 @@
 
 ```
 # printMatrixの動作確認
-  0.0  1.0
-  2.0  3.0
+  0.0  2.0
+  4.0  6.0
 
 # matrix22_1 + matrix22_2
-  4.0  6.0
-  8.0 10.0
+  1.0  4.0
+  7.0 10.0
 
 # matrix23_1 + matrix23_2
   6.0  8.0
  10.0 12.0
- 14.0 16.0
+ 14.0 21.0
 
 # 行列サイズが異る場合
 行数がおかしい
