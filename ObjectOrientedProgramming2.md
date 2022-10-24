@@ -54,6 +54,7 @@ book1.printSummary(); // => title =ルートビアは世界一, barcode = 123
 - 多くの教科書ではオブジェクト指向の3大要素を「継承・多態性・カプセル化」であり、この順序で説明することが多い。これは間違いではないが、使われる頻度という点からは「カプセル化」が最も重要である。そのため教科書後半ではあるが先に13章から説明する。
 - カプセル化の主な目的
   - ミスや想定外の使われ方を防ぐ手段の一つで、「やれることを制限する」ために用いられる。
+
 -　制限したくなる背景
   - 勝手にフィールドを書き換えられたくない。
     - 例: [RentalBook.java](https://github.com/naltoma/java_intro2020/blob/master/ObjectOrientedProgramming.md#step1)の RentalBook.title は、本来なら一度設定したら後は変更不要のはず。だが、図書館員なりが後から変更することが可能なプログラムになっているため、タイトルを意図的・間接的に変更されてしまい、本来は所蔵している本を探せなくなる可能性がある。
@@ -78,12 +79,16 @@ public class Member {
     }
 }
 
-/** 変更例
- * nameは近いうちに廃止する方針。
- * しかし急に無くすとこれを利用しているユーザやアプリ全てに影響を及ぼすため、
- * 当面は name を残しつつ、並行して fullName を追加。
- * 少しずつこれを利用するように書き直し、
- * 完全にnameの利用が無くなった段階でフィールドを削除するものとする。
+// ------------------------------------------
+
+/** 変更例1：運用中にフィールドを変更したくなった状況に対する更新例。
+ * まだアクセス制御はしていない点に注意。
+ * 更新方針
+ *   nameは近いうちに廃止する方針。
+ *   しかし急に無くすとこれを利用しているユーザやアプリ全てに影響を及ぼすため、
+ *   当面は name を残しつつ、並行して fullName を追加。
+ *   少しずつこれを利用するように書き直し、
+ *   完全にnameの利用が無くなった段階でフィールドを削除するものとする。
  */
 public class Member {
     int id;
@@ -99,13 +104,14 @@ public class Member {
     public Member(int _id, String _name){
         this.id = _id;
         this.name = _name;
+        this.fullName = _name;
     }
 
     public Member(int _id, String _firstName, String _lastName){
         this.id = _id;
         this.firstName = _firstName;
         this.lastName = _lastName;
-        this.fullName = this.firstName + " " + this.lastName
+        this.fullName = this.firstName + " " + this.lastName;
         this.name = this.fullName;
     }
 
@@ -146,6 +152,51 @@ public class Member {
   - 名称: ``get + フィールド名``。例えばMember.nameに対するゲッターは ``public Member.getName``。
   - 引数: ゲッターは指定したフィールドの値を参照することだけが目的なので、引数は設定しない。Member.nameに対する例なら ``public Member.getName()``。
   - 戻り値: 指定したフィールドの値を参照するために、フィールドの型を指定する必要がある。Member.nameに対する例なら ``public String Member.getName()``。
+
+```Java
+// ------------------------------------------
+
+/** 変更例2：アクセス制御の例。
+ * 更新方針
+ *   全てのフィールドを private にする。
+ *   更新したい場合にはアクセサを使う。
+ */
+public class Member {
+    private int id;
+    private String name; // 暫くは firstName + " " + lastName で対応。
+    private String fullName;
+    private String firstName;
+    private String lastName;
+
+    /**
+     * @deprecated fullNameに移行するため。
+     */
+    @Deprecated
+    public Member(int _id, String _name){
+        this.setId(_id);
+        this.setName(_name);
+        this.setFullName(_name);
+    }
+
+    public Member(int _id, String _firstName, String _lastName){
+        this.setId(_id);
+        this.setFirstName(_firstName);
+        this.setLastName(_lastName);
+        this.setFullName(_firstName + " " + _lastName);
+        this.setName(this.fullName);
+    }
+
+    public void setId(int _id){ this.id = _id; }
+    public void setName(String _name){ this.name = _name; }
+    public void setFullName(String _fullname){ this.fullName = _fullname; }
+    public void setFirstName(String _firstname){ this.firstName = _firstname; }
+    public void setLastName(String _lastname){ this.lastName = _lastname; }
+
+    public String getName(){
+        return this.fullName;
+    }
+}
+```
 
 <hr>
 
