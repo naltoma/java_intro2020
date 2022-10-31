@@ -85,6 +85,7 @@
     - importしてるパッケージ名を変更。
 - (d) ``app/build.gradle`` を編集。
   - 29行目を ``mainClass = 'Main'`` に書き換えよう。
+  - 書き換えたら、ファイルを保存しよう。
   - ``A build file was modified. Do you want to synchronize the Java classpath/configuration?`` というダイアログが出力されたら、Now もしくは Always を選択。これは設定変更を反映するかどうかを尋ねている。
 - (e) 動作確認1：**通常実行**。
   - VSCodeからの動作確認。
@@ -147,7 +148,8 @@
 
 - (f) 動作確認2：**テスト実行**。
   - VSCodeからの動作確認。
-    - ``app/src/test/java/jp/ac/uryukyu/ie/tnal/EnemyTest.java`` を実行しよう。課題概要で示したようにテストが失敗することを確認しよう。乱数を用いているため具体的な数値は異なっていも問題ない。
+    - ``app/src/test/java/jp/ac/uryukyu/ie/tnal/EnemyTest.java`` を実行しよう。テストを実行するには、EnemyTest.javaを開き、6行目``class EnemyTest``の行番号の隣にある▷アイコンを押すと、このクラス内にあるテストメソッドをすべて実行してくれる。
+    - 課題概要で示したようにテストが失敗することを確認しよう。乱数を用いているため具体的な数値は異なっていも問題ない。
   - Gradleからの動作確認。
     - ターミナルで ``gradle test`` を実行しよう。同様にテストが失敗することを確認しよう。
 - (g) 動作確認後、GitHubリポジトリにpushせよ。

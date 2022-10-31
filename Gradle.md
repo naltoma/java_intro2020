@@ -76,10 +76,7 @@
 - 以下は git init した様子。
 
 ```shell
-(base) oct:tnal% mkdir ~/prog2/ex-gradle
-(base) oct:tnal% cd ~/prog2/ex-gradle/
 (base) oct:tnal% gradle init
-Starting a Gradle Daemon (subsequent builds will be faster)
 
 Select type of project to generate:
   1: basic
@@ -107,18 +104,19 @@ Select build script DSL:
   2: Kotlin
 Enter selection (default: Groovy) [1..2] 1
 
+Generate build using new APIs and behavior (some features may change in the next
 Select test framework:
   1: JUnit 4
   2: TestNG
   3: Spock
   4: JUnit Jupiter
-Enter selection (default: JUnit 4) [1..4] 4
+Enter selection (default: JUnit Jupiter) [1..4] 4
 
-Project name (default: ex-gradle):
-Source package (default: ex.gradle): jp.ac.uryukyu.ie.tnal
+Project name (default: report3): jp.ac.uryukyu.ie.tnal
+Source package (default: jp.ac.uryukyu.ie.tnal): 
 
 > Task :init
-Get more help with your project: https://docs.gradle.org/6.7/samples/sample_building_java_applications.html
+Get more help with your project: https://docs.gradle.org/7.5.1/samples/sample_building_java_applications.html
 
 BUILD SUCCESSFUL in 1m 4s
 2 actionable tasks: 2 executed
