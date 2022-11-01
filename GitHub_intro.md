@@ -196,7 +196,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 ### <a name="step5">step 5: ベアリポジトリの準備。</a>
 - ブラウザでGitHubを開く。
 - 右上アイコン隣の「+」をクリックし、「New repository」を選択。
-  - Project name を ``prog2_week4`` とする。ローカルリポジトリを置いたディレクトリ名と違っていて構わない。
+  - Repository name を ``prog2_week4`` とする。ローカルリポジトリを置いたディレクトリ名と違っていて構わない。
   - Project description に ``プログラミング2、クラスからオブジェクト生成する練習`` ぐらいの説明を書いておく。
   - 「public」にする。
   - 「Create project」をクリック。
