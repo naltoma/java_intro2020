@@ -164,7 +164,6 @@ BUILD SUCCESSFUL in 1m 4s
   - ``gradle/*, gradlew, gradlew.bat, settings.gradle`` もGradle関連ファイル。
   - これらとは別に、``ls -a`` を実行すると . から始まるファイルが見つかる。
     - ``.gitattributes``, ``.gitignore``: Git設定。Git利用時には中身を確認した上でaddしよう。
-    - ``.project``, ``.settings/``: Gradle設定。Git利用時にはaddしよう。
     - ``.gradle/``: Gradleが一時的に利用するためのディレクトリ。自動生成されるので無視して良い。Git管理対象にも指定(add)しない。
 
 <hr>
@@ -359,7 +358,7 @@ VSCode上からはファイル単位での実行になるが、Gradleを通せ�
     - ``2 tests completed, 1 failed`` とあり、2つ実行、1つ失敗と報告している。
   - (2) 何箇所かに ``failed`` という単語が出てきており、何かしら検証が失敗したことを示している。
     - 具体的な箇所は ``EnemyTest > attackTest() FAILED`` とある。
-  - (3) おまけ。より詳細を知りたい人向けに ``There were failing tests. See the report at: file:///Users/tnal/prog2/ex-gradle/app/build/reports/tests/test/index.html`` と書かれており、どうやら詳細報告書がHTML形式で出力されている。必要に応じてこれを参照するとより中身を確認しやすくなる。確認したい場合にはターミナルから ``open app/build/reports/tests/test/index.html`` と実行しよう。
+  - (3) より詳細を知りたい人向けに ``There were failing tests. See the report at: file:///Users/tnal/prog2/ex-gradle/app/build/reports/tests/test/index.html`` と書かれており、どうやら詳細報告書がHTML形式で出力されている。必要に応じてこれを参照するとより中身を確認しやすくなる。確認したい場合にはターミナルから ``open app/build/reports/tests/test/index.html`` と実行しよう。
 
 ```shell
 oct:tnal% gradle test
@@ -393,19 +392,13 @@ BUILD FAILED in 2s
 - この時点までのコードと設定ファイルをGit管理し、GitHubに登録しよう。
   - GitHubリポジトリ名：``ex-gradle``　＊それ以外でも良いけど。
   - jarファイル, htmlファイル等の自動生成されるファイルはaddしないこと。（デフォルトでもaddしないように設定されています）
-  - 追加すべき設定ファイルやディレクトリ一覧。
-    - .gitattributes
-    - .gitignore
-    - .project
-    - .settings/
-    - .vscode/
-    - app/build.gradle
 - 手順
   - ローカルディレクトリをGit管理下にする。
     - ``git init``
   - これ以降は[Git + GitHub 演習](https://github.com/naltoma/java_intro2020/blob/master/GitHub_intro.md)のstep2〜step7を参考にやってみよう。
 - うまくやれていれば、次のように登録されているはず。
   - [Github:ex-gradle](https://github.com/naltoma/ex-gradle)
+  - なお、上記リンク先は古いGradleでの例です。現バージョンでは存在しないファイルも含まれています。今回は皆さん自身の手元にあるファイルで、.gitignore で除外指定されているものを除いた全てのファイルがアップロードされていればOK。
 
 <hr>
 
