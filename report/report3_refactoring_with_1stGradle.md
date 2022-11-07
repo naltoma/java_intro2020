@@ -11,7 +11,7 @@
   - <a href="#details_step1">ステップ1: コードの準備。</a>
   - <a href="#details_step2">ステップ2: 死亡した後で攻撃できてしまう件をどうにかしたい。</a>
   - <a href="#details_step3">ステップ3: カプセル化しよう。</a>
-  - <a href="#details_step4">ステップ4: アクセサのJavaDocを書こう。</a>
+  - <a href="#details_step4">(おまけ)ステップ4: アクセサのJavaDocを書こう。</a>
 - <a href="#report">取り組み方、レポートに含めるべき項目</a>
 - <a href="#submit">提出方法</a>
 
@@ -184,7 +184,7 @@
 
 <hr>
 
-### <a name="details_step4">ステップ4: アクセサのJavaDocを書こう。</a>
+### <a name="details_step4">(おまけ)ステップ4: アクセサのJavaDocを書こう。</a>
 - 授業で示したJavaDoc例を元に、ステップ3で追加したメソッドのドキュメントをJavaDoc形式で書こう。
   - 記述したらHTMLドキュメントを生成し、想定通りに反映されていることを確認すること。
   - 確認できたらJavaのソースファイルだけをpushしよう。ドキュメントは自動生成できるので含めなくて良い。
