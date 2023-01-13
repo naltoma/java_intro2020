@@ -71,7 +71,7 @@ for(String target : inputs){
 ```
 //検証コード例
 String[] accounts = {"e185701", "e1857xy", "y185701", "e135799"};
-String pattern = "e[0-9]{2}57[0-9]{2}"; //ここに正規表現を入力
+String pattern = "ここに正規表現を入力";
 for(String target : accounts){
     System.out.println(target + ": " + target.matches(pattern));
 }
