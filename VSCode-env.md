@@ -8,9 +8,9 @@
 
 ---
 ## <a name="step0">想定環境</a>
-- 動作確認日: 2022/9/6
+- 動作確認日: 2023/8/29
 - MacBook Air (M1, 2020)
-- macOS Monterey 12.5.1
+- macOS Ventura 13.5
 - Apple Silicon版VSCodeインストール済み。
 - JDK未インストール。
 - 備考
@@ -20,7 +20,7 @@
 ## <a name="step1">Step 1. VSCodeを最新版に更新する。</a>
 VSCodeを起動し、``Code``メニューから``更新を確認``し、最新版に更新しよう。
 
-2022年9月6日時点での最新版は 1.71.0。
+2023年8月29日時点での最新版は 1.81.1。
 
 ---
 ## <a name="step2">Step 2. VSCodeからOpenJDKのインストール。</a>
@@ -33,41 +33,24 @@ VSCodeが何かしら過去コードを開いているならばそのウィン�
   - 左下の歯車アイコンクリックして、「拡張機能(Extension)」を選択。
   - 検索窓に「java」と入力して「Extension Pack for Java」を探す。見つかったら選択して、インストール。
   - インストール終わったらVSCodeを再起動。
-  - ``⌘ + Shift + P`` を押してコマンドパレットを開き、``java``と入力。そこから``Java: Configure Java Runtime`` を選ぼう。選んだら<a href="#configure">configure画面</a>から続けよう。
-
-![Get Started with Java Development](./figs/vscode2022-3.png)
-
-その他をクリックすると、上図の通り画面上部のコマンドパレットに選択肢が列挙される。これをスクロールして、``Get Started with Java Development`` を選択しよう。
-
----
-
-![to Install JDK](./figs/vscode2022-4.png)
-
-Get Started with Java Development画面に移動したら、「Get your Java runtime ready」にチェックを入れ、``Install JDK`` をクリックしよう。
-
----
-
-<a name="configure"></a>
-![Download](./figs/vscode2022-5.png)
-
-上図画面になったら、「17 (LTS)」にチェックを入れ、``Download`` をクリックしよう。ブラウザが立ち上がり、ダウンロードページに遷移するので、そこからOpenJDK 16をダウンロードしよう。ファイルサイズは約200MBあるのでダウンロード完了するまで待とう。
-
-JDKをダウンロードすると、ダウンロードフォルダの中に ``OpenJDK17U-jdk_aarch64_mac_hotspot_17.0.4.1_1.pkg`` のようなファイルが保存されているはずだ。これをダブルクリックし、指定手順通りにインストールをしよう。特に変更する箇所はなく、デフォルトのままで良い。
-
-インストールを終えたら、ターミナルを開いて ``java --version`` と実行してみよう。以下のようにバージョンを確認することができればOK。
+- JDKのインストール
+  - ``⌘ + Shift + P`` を押してコマンドパレットを開き、``java``と入力。そこから ``Java: Install New JDK`` を選ぼう。選んだらその時点での最新安定版を選択し、dmgファイルをダウンロード。ファイルサイズは約200MBあるのでダウンロード完了するまで待とう。
+    - 2023年8月29日時点では 17.0.8+7 で、ダウンロードされるファイル名は ``OpenJDK17U-jdk_aarch64_mac_hotspot_17.0.8_7.dmg`` でした。
+  - 上記dmgファイルをダブルクリックし、インストールする。指定手順通りにインストールをしよう。特に変更する箇所はなく、デフォルトのままで良い。
+  - 正常終了すると ``Eclipse Temurin 17.0.8+7 to /Library/Java/JavaVirtualMachines/temurin-17.jdk`` にインストールしたという画面が出るはず。これでJDKインストールが終了。インストーラのウィンドウを閉じよう。
+- JDK動作確認
+  - インストールを終えたら、ターミナルを開いて ``java -version`` と実行してみよう。以下のようにバージョンを確認することができればOK。
 ```
 oct:tnal% java -version
-openjdk version "17.0.4.1" 2022-08-12
-OpenJDK Runtime Environment Temurin-17.0.4.1+1 (build 17.0.4.1+1)
-OpenJDK 64-Bit Server VM Temurin-17.0.4.1+1 (build 17.0.4.1+1, mixed mode)
+openjdk version "17.0.8" 2023-07-18
+OpenJDK Runtime Environment Temurin-17.0.8+7 (build 17.0.8+7)
+OpenJDK 64-Bit Server VM Temurin-17.0.8+7 (build 17.0.8+7, mixed mode)
 ```
 
 ---
-## <a name="step3">Step 3. VSCodeの設定（OpenJDKのための設定）。</a>
+## <a name="step3">Step 3. VSCodeの動作確認（OpenJDKをVSCodeから使ってみる）。</a>
 
-![reload](./figs/vscode2022-6.png)
-
-OpenJDKをインストールし終えたら、上図の通りVSCodeをReloadしよう。
+OpenJDKをインストールし終えたら、VSCodeを再起動しよう。
 
 次に、動作確認をしていこう。授業では ``~/prog2/`` をプログラミング2用のディレクトリとして利用するものとする。また、今回の動作確認では ``~/prog2/sample/`` というプロジェクトを用意し、その中にソースファイルを用意して実行するものとする。
 

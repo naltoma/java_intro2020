@@ -30,7 +30,7 @@
     public static void main(String[] args){
         double[][] matrix22_1 = {{0., 2.}, {4., 6.}};
         double[][] matrix22_2 = {{1., 2.}, {3., 4.}};
-        double[][] matrix23_1 = {{0., 1.}, {2., 3.}, {4., 10.}};
+        double[][] matrix23_1 = {{0., 1.}, {2., 3.}, {4., 12.}};
         double[][] matrix23_2 = {{6., 7.}, {8., 9.}, {10., 11.}};
 
         System.out.println("\n# printMatrixの動作確認");
