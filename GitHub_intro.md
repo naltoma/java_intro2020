@@ -102,13 +102,12 @@ Host github.com
 
 <hr>
 
-### <a name="step2">step 2: step 2: バージョン管理対象を決定する。</a>
+### <a name="step2">step 2: バージョン管理対象を決定する。</a>
 - この時点でのプロジェクト全体をバージョン管理対象とする。
 - 決定した管理対象
   - .vscode/settings.json
   - README.md
-  - src/Main.java
-  - src/Chatbot.java
+  - src/App.java
 
 <hr>
 
@@ -131,7 +130,7 @@ Initialized empty Git repository in /Users/tnal/prog2/week4-2023/.git/
 <hr>
 
 ### <a name="step4">step 4: 管理対象ファイルを add, commit する。</a>
-- README.md, src/App.java の2つをadd, commitする。以下ではgit管理対象になっているかどうかを確認するため、add,commit前後で ``git st`` (git statusのエイリアス名による実行) している様子を示している。
+- .vscode/settings.json README.md, src/App.java の3つをadd, commitする。以下ではgit管理対象になっているかどうかを確認するため、add,commit前後で ``git st`` (git statusのエイリアス名による実行) している様子を示している。
 
 ```shell
 (base) oct:tnal% git st
