@@ -39,10 +39,10 @@
   - 既にインストール済みを想定。何らかの理由で環境再構築が必要な人は下記を参照。
     - IntelliJ利用者は[2019年作成した資料](https://github.com/naltoma/java_intro/blob/master/IntelliJ%2BJUnit.md)を参考にしよう。
     - VSCode利用者は[VSCodeの環境構築](https://github.com/naltoma/java_intro2020/blob/master/VSCode-env.md)を参考に、``Extension Pack for Java`` をインストールしよう。
-- 動作確認した環境情報
-  - macOS 11.6
-  - javac 16.0.2
-  - gradle 7.2
+- 動作確認した環境情報: 2023/10/17
+  - macOS 13.5.2
+  - javac 17.0.8
+  - gradle 8.4
 
 <hr>
 
@@ -68,15 +68,20 @@
   - Gradleを利用するにはいくつか設定項目がある。ここでは以下のように設定している。
     - 開発対象種別: ``application``
     - 開発言語: ``Java``
-    - プロジェクト数: ``no - only one application project``
-    - ビルドスクリプトDSL: ``Groovy``
+    - プロジェクト数: ``no`` (複数サブプロジェクトを含まない)
+    - ビルドスクリプトDSL: ``Kotlin``
+      - 2022年度まではデフォルトで groovy が使われていましたが、2023年度10月現在は Kotlin になっています。
     - テストフレームワーク: ``JUnit Jupiter`` 　＊JUnit5のこと。
     - プロジェクト名: ``ex-gradle``　＊自身がわかれば何でも良い。ここではディレクトリ名がそのまま採用されている。
     - パッケージ名: ``jp.ac.uryukyu.ie.tnal``　　＊自身のアカウントに修正しよう。
+    - Java version: default 21
+    - Generate build using new APIs and behavior: （何も入力せずにEnter）
 - 以下は git init した様子。
 
 ```shell
-(base) oct:tnal% gradle init
+(base) oct2021:tnal% mkdir ex-gradle
+(base) oct2021:tnal% cd ex-gradle/
+(base) oct2021:tnal% gradle init
 
 Select type of project to generate:
   1: basic
@@ -94,17 +99,12 @@ Select implementation language:
   6: Swift
 Enter selection (default: Java) [1..6] 3
 
-Split functionality across multiple subprojects?:
-  1: no - only one application project
-  2: yes - application and library projects
-Enter selection (default: no - only one application project) [1..2] 1
-
+Generate multiple subprojects for application? (default: no) [yes, no] 
 Select build script DSL:
-  1: Groovy
-  2: Kotlin
-Enter selection (default: Groovy) [1..2] 1
+  1: Kotlin
+  2: Groovy
+Enter selection (default: Kotlin) [1..2] 1  
 
-Generate build using new APIs and behavior (some features may change in the next
 Select test framework:
   1: JUnit 4
   2: TestNG
@@ -112,18 +112,20 @@ Select test framework:
   4: JUnit Jupiter
 Enter selection (default: JUnit Jupiter) [1..4] 4
 
-Project name (default: report3): jp.ac.uryukyu.ie.tnal
-Source package (default: jp.ac.uryukyu.ie.tnal): 
+Project name (default: ex-gradle): 
+Source package (default: ex.gradle): jp.ac.uryukyu.ie.tnal
+Enter target version of Java (min. 7) (default: 21): 
+Generate build using new APIs and behavior (some features may change in the next
 
 > Task :init
-Get more help with your project: https://docs.gradle.org/7.5.1/samples/sample_building_java_applications.html
+To learn more about Gradle by exploring our Samples at https://docs.gradle.org/8.4/samples/sample_building_java_applications.html
 
-BUILD SUCCESSFUL in 1m 4s
+BUILD SUCCESSFUL in 4m 26s
 2 actionable tasks: 2 executed
-(base) oct:tnal% tree
+(base) oct2021:tnal% tree
 .
 ├── app
-│   ├── build.gradle
+│   ├── build.gradle.kts
 │   └── src
 │       ├── main
 │       │   ├── java
@@ -149,9 +151,9 @@ BUILD SUCCESSFUL in 1m 4s
 │       └── gradle-wrapper.properties
 ├── gradlew
 ├── gradlew.bat
-└── settings.gradle
+└── settings.gradle.kts
 
-20 directories, 8 files
+21 directories, 8 files
 ```
 
 - 補足
@@ -160,7 +162,7 @@ BUILD SUCCESSFUL in 1m 4s
     - VSCodeで直接 Java アプリケーションのプロジェクトを用意すると、「project名/src/package/ソースファイル」にソースファイルを保存していくことになる。
     - Gradleでは上記の通り ``project名/src/main/java/package/ソースファイル`` となる。テストコードは main を test にした階層に配置する。
     - 階層構造がGradle対応か否かで変わってくる。もし、非対応の既存プロジェクトをGradle対応にするなら、上記階層構造に変更する必要がある。
-  - ``app/build.gradle`` はGradle設定ファイル。後で修正する。
+  - ``app/build.gradle.kts`` はGradle設定ファイル。後で修正する。
   - ``gradle/*, gradlew, gradlew.bat, settings.gradle`` もGradle関連ファイル。
   - これらとは別に、``ls -a`` を実行すると . から始まるファイルが見つかる。
     - ``.gitattributes``, ``.gitignore``: Git設定。Git利用時には中身を確認した上でaddしよう。
@@ -170,28 +172,71 @@ BUILD SUCCESSFUL in 1m 4s
 
 ## <a name="step3">step 3: Gradleの設定変更。</a>
 - VSCodeで該当ディレクトリを開こう。
-  - 作業ディレクトリに移動してから ``code .``
-- ``app/build.gradle`` を選択し、2箇所編集する。
-  - 1箇所目: sourceCompatibilityの設定。
-    - どのJDKから対応しているのかを明示するための設定。Javaに限らず多くのプログラミング言語は可能な範囲で後方互換性を保とうとするが、新版で追加された機能を用いたコードは古いJDKでは動作しない。今回は ``10`` にしよう。
-    - 新: ``sourceCompatibility = 10`` を13行目以降に追記。少なくとも plugins を指定しているブロックの後ろに書こう。
-  - 2箇所目: JARファイル生成する際の設定。
-    - ファイルの最後尾に下記を追加して保存。
-    - パッケージ名は適宜修正すること。
+  - プロジェクトディレクトリ（~/prog2/ex-gradpe/）をVSCodeで開く。
+- VSCodeで ``app/build.gradle.kts`` を開く。
+  - case: 初めて開いたとき
+    - ``Do you want to install the recommended 'Gradle for Java' extension from Microsoft for build.gradle.kts?`` と聞かれるので、指定された Extension (Gradle for Java) をインストールする。
+- VSCodeで ``app/build.gradle.kts`` を開く。（Extensionインストール後）
+  - 2箇所編集する。
 
+### app/build.gradle.kts の編集1箇所目
+sourceCompatibilityの設定。どのJDKから対応しているのかを明示するための設定。Javaに限らず多くのプログラミング言語は可能な範囲で後方互換性を保とうとするが、新版で追加された機能を用いたコードは古いJDKでは動作しない。今回は JDK 17 をインストールしていることを前提に設定しておこう。以下のコードを12行目以降に追記。少なくとも plugins を指定しているブロックの後ろに書こう。
 ```
-jar {
+java {                                      
+    sourceCompatibility = JavaVersion.VERSION_17
+}
+```
+
+### app/build.gradle.kts の編集2箇所目
+2箇所目: JARファイル生成する際の設定。
+- ファイルの最後尾に下記を追加して保存。
+- パッケージ名は適宜修正すること。
+```
+tasks.withType<Jar> {
     manifest {
-        attributes  "Main-Class": "jp.ac.uryukyu.ie.tnal.App"
+        attributes["Main-Class"] = "jp.ac.uryukyu.ie.tnal.App"
     }
 }
 ```
 
+### 動作確認
 - 編集を保存して反映。
   - ファイル編集し終えたら保存しよう。保存するとJava classpath等の設定を同期するか確認されることがあるので、常にOKしたいなら ``Always``を選択。毎回確認したいなら``Now``を選択。
     - ``A build file was modified. Do you want to synchronize the Java classpath/configuration?``
   - もし同期確認をされず、設定反映されているか不安な場合には、保存後に vscodeを reload しよう。
     - コマンドパレットから reload と入力し ``Developer: Reload Window`` を選択。
+- 動作確認。
+  - case: ターミナルから実行する場合。プロジェクトディレクトリにて以下のコマンドを実行。
+    - 通常実行: ``gradle run``
+    - テスト実行: ``gradle test``
+    - jarファイル生成: ``gradle jar``
+    - jarファイルを使った実行: ``java -jar app/build/libs/app.jar``
+    - 以下実行イメージ
+```
+(base) oct2021:tnal% pwd
+/Users/tnal/prog2/ex-gradle
+(base) oct2021:tnal% gradle run
+
+> Task :app:run
+Hello World!
+
+BUILD SUCCESSFUL in 908ms
+2 actionable tasks: 2 executed
+(base) oct2021:tnal% gradle test
+
+BUILD SUCCESSFUL in 1s
+3 actionable tasks: 2 executed, 1 up-to-date
+(base) oct2021:tnal% gradle jar
+
+BUILD SUCCESSFUL in 382ms
+2 actionable tasks: 1 executed, 1 up-to-date
+(base) oct2021:tnal% java -jar app/build/libs/app.jar
+Hello World!
+```
+
+- case: VSCodeから実行する場合。
+  - 通常通り実行。
+  - Note: gradle設定のキャッシュがどこかに残るのか、偶に実行できない（文法エラーが多数出る）ことがあります。この場合はファイルを開き直したり、reloadしてから改めて実行してみてください。
 
 <hr>
 
@@ -244,16 +289,16 @@ app/src/main/
 
 <hr>
 
-### <a name="step4-2">step 4-2:build.gradleの修正。</a>
+### <a name="step4-2">step 4-2:build.gradle.kts の修正。</a>
 - **注意**
   - 実行するファイルが ``jp.ac.uryukyu.ac.ie.App.java`` から、``Main.java`` に変わった。このことを Gradle に伝える必要がある。具体的にはbuild.gradleを以下のように編集する必要がある。
 - build.gradleではmainメソッドを書いたクラスを指定する箇所がある。 **標準では ``package名.App`` が指定されているため、実行したいクラス（今回は新しく追加したMainクラス）を実行するように編集** しよう。
   - 1箇所目（applicationタスク内）
-    - 旧: ``mainClass = 'jp.ac.uryukyu.ie.tnal.App'``
-    - 新: ``mainClass = 'Main'``
+    - 旧: ``mainClass.set("jp.ac.uryukyu.ie.tnal.App")``
+    - 新: ``mainClass.set("Main")``
   - 2箇所目（jarタスク内）
-    - 旧: ``attributes  "Main-Class": "jp.ac.uryukyu.ie.tnal.App"``
-    - 新: ``attributes  "Main-Class": "Main"``
+    - 旧: ``attributes["Main-Class"] = "jp.ac.uryukyu.ie.tnal.App"``
+    - 新: ``attributes["Main-Class"] = "Main"``
 - build.gradleの設定反映。
   - ファイル保存。
     - 編集しただけでは保存されていない。ちゃんと保存しよう。
@@ -319,20 +364,25 @@ oct2021:tnal%
     - アノテーション自体は何かしらの目印を意味する。JDKにおける ``@Test`` は、テストコードが記述されたメソッドであることを明示している。これが記載されているメソッドは後述の「検証」実行時に自動的に実行される。
 
 ```Java
-@Test
-void attackTest() {
-    int defaultHeroHp = 100;
-    Hero demoHero = new Hero("デモ勇者", defaultHeroHp, 100);
-    Enemy slime = new Enemy("スライムもどき", 10, 100);
-    for(int count=0; count<10; count++){
-        demoHero.attack(slime); // over kill
+package jp.ac.uryukyu.ie.tnal;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+class EnemyTest {
+    @Test
+    void attackTest() {
+        int defaultHeroHp = 100;
+        Hero demoHero = new Hero("デモ勇者", defaultHeroHp, 100);
+        Enemy slime = new Enemy("スライムもどき", 10, 100);
+        for(int count=0; count<10; count++){
+            demoHero.attack(slime); // over kill
+        }
+        slime.attack(demoHero);
+        assertEquals(defaultHeroHp, demoHero.hitPoint);
     }
-    slime.attack(demoHero);
-    assertEquals(defaultHeroHp, demoHero.hitPoint);
 }
 ```
-
-- 編集後のEnemyTest.javaの例: [EnemyTest.java](hero_enemy/EnemyTest.java)
 
 <hr>
 
