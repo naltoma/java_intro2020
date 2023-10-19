@@ -18,7 +18,7 @@
 <hr>
 
 ## <a name="abst">課題概要</a>
-- コード例[ex-gradle](https://github.com/naltoma/ex-gradle)は、ターン制バトルゲーム（1ターン毎に勇者とスライムが戦い、どちらかが倒れるまで攻撃し合う）を書いている途中だ。ただし次に示す問題があるため、修正したい。ユニットテストとバージョン管理システムを使いながら、一歩ずつリファクタリングしてみよう。
+- コード例[ex-gradle2023](https://github.com/naltoma/ex-gradle2023)は、ターン制バトルゲーム（1ターン毎に勇者とスライムが戦い、どちらかが倒れるまで攻撃し合う）を書いている途中だ。ただし次に示す問題があるため、修正したい。ユニットテストとバージョン管理システムを使いながら、一歩ずつリファクタリングしてみよう。
   - 状況：各ターンではまず勇者が敵を攻撃し、ダメージに応じてスライムのHPを修正する。次にスライムが勇者を攻撃し、勇者のHPを修正する。これを繰り返すが、どちらかが倒れたらループを抜ける。
   - 問題：勇者がスライムを倒しても、スライムが勇者を攻撃できてしまう。
 - 問題を確認するテストコード(EnemyTest.java)。
@@ -46,35 +46,36 @@
   - プロジェクト名は自由で良い。以下の例では ``~/prog2/report3`` とする。
   - まずGradleをインストールする。
     - ターミナルで ``brew install gradle`` を実行。
-    - インストール終了後、``gradle --version`` でバージョン確認し、7.2以降になっていればOK。
+    - インストール終了後、``gradle --version`` でバージョン確認し、8.4以降になっていればOK。
   - プロジェクトの用意。
     - mkdir で ``~/prog2/report3`` フォルダを作成し、ターミナルで移動。
     - ``~/prog2/report3/`` にいる状態で、ターミナルで ``gradle init`` を実行。
       - [ここのstep 2: Gradleの初期設定](https://github.com/naltoma/java_intro2020/blob/master/Gradle.md#step2)を参考に、プロジェクトを用意。何をやっているのかは次週授業で説明します。
 - (b) サンプルコードの準備。
-  - [ex-gradle](https://github.com/naltoma/ex-gradle)を参考に、Hero.java, Enemy.java, Main.java, EnemyTest.java の4つを適切に配置するために下記コマンドを実行しよう。**なお、mvコマンドではパッケージ名を指定してファイルを移動しているため、``tnal`` を ``自身のアカウント`` に修正して実行すること。**
+  - [ex-gradle2023](https://github.com/naltoma/ex-gradle2023)を参考に、Hero.java, Enemy.java, Main.java, EnemyTest.java の4つを適切に配置しよう。
+    - 下記コマンドを実行してファイルを配置しよう。**なお、mvコマンドではパッケージ名を指定してファイルを移動しているため、``tnal`` を ``自身のアカウント`` に修正して実行すること。**
 
     ```shell
     # ~/prog2/report3 に移動し、
     # gradle init した後で実行することを想定。
 
-    curl -O https://raw.githubusercontent.com/naltoma/ex-gradle/main/app/src/main/java/Main.java
+    curl -O https://raw.githubusercontent.com/naltoma/ex-gradle2023/main/app/src/main/java/Main.java
     mv Main.java app/src/main/java/
-    curl -O https://raw.githubusercontent.com/naltoma/ex-gradle/main/app/src/main/java/jp/ac/uryukyu/ie/tnal/Enemy.java
+    curl -O https://raw.githubusercontent.com/naltoma/ex-gradle2023/main/app/src/main/java/jp/ac/uryukyu/ie/tnal/Enemy.java
     mv Enemy.java app/src/main/java/jp/ac/uryukyu/ie/tnal/
-    curl -O https://raw.githubusercontent.com/naltoma/ex-gradle/main/app/src/main/java/jp/ac/uryukyu/ie/tnal/Hero.java
+    curl -O https://raw.githubusercontent.com/naltoma/ex-gradle2023/main/app/src/main/java/jp/ac/uryukyu/ie/tnal/Hero.java
     mv Hero.java app/src/main/java/jp/ac/uryukyu/ie/tnal/
-    curl -O https://raw.githubusercontent.com/naltoma/ex-gradle/main/app/src/test/java/jp/ac/uryukyu/ie/tnal/EnemyTest.java
+    curl -O https://raw.githubusercontent.com/naltoma/ex-gradle2023/main/app/src/test/java/jp/ac/uryukyu/ie/tnal/EnemyTest.java
     mv EnemyTest.java app/src/test/java/jp/ac/uryukyu/ie/tnal/
     ```
   - 上記コマンドがやっている内容は、具体的には以下の通り。
-    - 指定したパッケージの下に [Hero.java](https://github.com/naltoma/ex-gradle/blob/main/app/src/main/java/jp/ac/uryukyu/ie/tnal/Hero.java), [Enemy.java](https://github.com/naltoma/ex-gradle/blob/main/app/src/main/java/jp/ac/uryukyu/ie/tnal/Enemy.java) を用意する。
+    - 指定したパッケージの下に [Hero.java](https://github.com/naltoma/ex-gradle2023/blob/main/app/src/main/java/jp/ac/uryukyu/ie/tnal/Hero.java), [Enemy.java](https://github.com/naltoma/ex-gradle2023/blob/main/app/src/main/java/jp/ac/uryukyu/ie/tnal/Enemy.java) を用意する。
       - なお、Gradleプロジェクトの場合には階層構造が以下のようになる。
         - ``プロジェクト名/app/src/main/java/パッケージ名/Hero.java``
         - ``プロジェクト名/app/src/main/java/パッケージ名/Enemy.java``
-    - パッケージ外に [Main.java](https://github.com/naltoma/ex-gradle/blob/main/app/src/main/java/Main.java) を用意する。
+    - パッケージ外に [Main.java](https://github.com/naltoma/ex-gradle2023/blob/main/app/src/main/java/Main.java) を用意する。
       - ``プロジェクト名/app/src/main/java/Main.java``
-    - test以下に [EnemyTest.java](https://github.com/naltoma/ex-gradle/blob/main/app/src/test/java/jp/ac/uryukyu/ie/tnal/EnemyTest.java) を用意する。
+    - test以下に [EnemyTest.java](https://github.com/naltoma/ex-gradle2023/blob/main/app/src/test/java/jp/ac/uryukyu/ie/tnal/EnemyTest.java) を用意する。
       - ``プロジェクト名/app/src/test/java/パッケージ名/EnemyTest.java``
 - (c) ソースコードの修正。
   - ``app/src/main/java/jp/ac/uryukyu/ie/tnal/Enemy.java`` のパッケージ名を変更。
@@ -92,7 +93,7 @@
     - ``app/src/main/java/Main.java`` を実行せよ。乱数を用いたコードなので実行する毎に動作が異なるが、おおよそ以下のような出力が得られるはずだ。
 
       ```shell
-      oct2021:tnal%  /usr/bin/env /Library/Java/JavaVirtualMachines/temurin-16.jdk/Contents/Home/bin/java -XX:+ShowCodeDetailsInExceptionMessages -Dfile.encoding=UTF-8 @/var/folders/nc/_3k6g05j2499x9n2cjtmhxl80000gn/T/cp_38yuv65uwamxn1u85h7y9rq4h.argfile Main
+      (base) oct2021:tnal%  /usr/bin/env /Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home/bin/java @/var/folders/nc/_3k6g05j2499x9n2cjtmhxl80000gn/T/cp_dpxrjlbtxqb3rbi669wjyuays.argfile Main
       勇者のHPは10。攻撃力は5です。
       スライムのHPは6。攻撃力は3です。
       勇者 vs. スライム
@@ -143,7 +144,7 @@
 
       BUILD SUCCESSFUL in 1s
       2 actionable tasks: 2 executed
-      oct2021:tnal% gradle test
+      oct2021:tnal% 
       ```
 
 - (f) 動作確認2：**テスト実行**。
