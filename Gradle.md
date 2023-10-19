@@ -33,7 +33,7 @@
 ## <a name="env">事前にやる環境構築</a>
 - Gradle
   - ターミナルから ``brew install gradle`` を実行。
-  - ``gradle --version`` と実行して ``Gradle 7.2`` 以上になってるならOK。古い人は更新（``brew upgrade gradle``）しておこう。
+  - ``gradle --version`` と実行して ``Gradle 8.4`` 以上になってるならOK。古い人は更新（``brew upgrade gradle``）しておこう。
   - VSCode上でのGUIも使いたい人は、Extensionから ``Gradle Tasks`` もインストールしよう。授業では使いません。
 - JUnit 5
   - 既にインストール済みを想定。何らかの理由で環境再構築が必要な人は下記を参照。
