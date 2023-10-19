@@ -1,10 +1,9 @@
-# Git + GitHub 演習（演習2しながら）
+# Git + GitHub 演習
 - 関連資料
   - [Gitによるバージョン管理入門](https://github.com/naltoma/python_intro/blob/master/Git.md)
     - 主な用語: add, commit, push, working directory, staging area, local repository, bare repository
 - ＜目次＞
   - <a href="#goal">達成目標</a>
-  - <a href="#flow">全体の流れ</a>
   - <a href="#pre">前提</a>
   - <a href="#step0">step 0: GitHubのアカウント作成</a>
   - ローカルPCでの作業
@@ -30,12 +29,7 @@
 <hr>
 
 ## <a name="goal">達成目標</a>
-- [演習2: クラス実装に慣れよう](https://github.com/naltoma/java_intro2020/blob/master/ex/ex2_classcoding.md)の演習2_8途中まで（アクセス制限加える所まで）やり終えた。ここからソースコードをバージョン管理し、ベアリポジトリとしてGitHubを利用する。
-
-<hr>
-
-## <a name="flow">全体の流れ</a>
-- [演習2: クラス実装に慣れよう](https://github.com/naltoma/java_intro2020/blob/master/ex/ex2_classcoding.md)の演習2_8途中まで（アクセス制限加える所まで）やり終えた。この時点でのコードを初版としてバージョン管理下におき登録していきたい。今後の修正も動作確認できる都度登録していく。バージョン管理にはGitを使い、ベアリポジトリとしてGitHubを利用する。
+- ソースコードをバージョン管理し、ベアリポジトリとしてGitHubを利用する。
 
 <hr>
 
