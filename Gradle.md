@@ -17,9 +17,9 @@
   - <a href="#step3">step 3: Gradleの設定変更。</a>
   - <a href="#step4">step 4: コード編集等の開発。（今回はサンプルを用意）</a>
     - <a href="#step4-1">step 4-1: サンプルコードの用意。</a>
-    - <a href="#step4-2">step 4-2: build.gradleの修正。</a>
+    - <a href="#step4-2">step 4-2: build.gradle.ktsの修正。</a>
     - <a href="#step4-3">step 4-3: VSCodeによる動作確認。</a>
-    - <a href="#step4-4">step 4-4: Gradleの設定変更と動作確認。</a>
+    - <a href="#step4-4">step 4-4: コマンドラインからの動作確認。</a>
   - <a href="#step5">step 5: JUnit5のテストコード記述。</a>
   - <a href="#step6">step 6: Gradleによるテストの実行。</a>
     - <a href="#step6-1">step 6-1: VSCodeによるテストの実行。</a>
@@ -190,7 +190,8 @@ java {
 ### app/build.gradle.kts の編集2箇所目
 2箇所目: JARファイル生成する際の設定。
 - ファイルの最後尾に下記を追加して保存。
-- パッケージ名は適宜修正すること。
+- **パッケージ名は適宜修正すること**。以下では jp.ac.uryukyu.ie.tnal.App を実行する際の設定例。別クラスを実行指定したいなら編集すること。
+  - 例えば app/src/main/java/Main.java を実行させたいなら、``attributes["Main-Class"] = "Main"`` と書く。
 ```
 tasks.withType<Jar> {
     manifest {
