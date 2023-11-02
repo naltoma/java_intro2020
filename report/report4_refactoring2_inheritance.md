@@ -18,7 +18,8 @@
 <hr>
 
 ## <a name="abst">課題概要</a>
-- コード例[ex-gradle](https://github.com/naltoma/ex-gradle)は、コードの書き方があまりヨロシクない。ユニットテストとバージョン管理システムを使いながら、一歩ずつリファクタリングしてみよう。
+- 課題3の続きです。
+- コード例[ex-gradle2023](https://github.com/naltoma/ex-gradle2023)は、コードの書き方があまりヨロシクない。ユニットテストとバージョン管理システムを使いながら、一歩ずつリファクタリングしてみよう。
 
 <hr>
 
@@ -37,10 +38,10 @@
 - いろんな対応方法が考えられるが、ここでは以下のように修正してみよう。
   - 両方に共通するLivingThingクラスを新規作成しよう。
     - フィールド変数として下記4項目を持つものとする。
-      - String name;
-      - int hitPoint;
-      - int attack;
-      - boolean dead;
+      - private String name;
+      - private int hitPoint;
+      - private int attack;
+      - private boolean dead;
     - コンストラクタとしてname, hitPoint, attackの3つを引数に取り、Enemy,Heroと同等の処理を実行しよう。（dead変数の初期化も忘れないようにしよう）
     - 下記メソッドを作成。
       - public boolean isDead()
