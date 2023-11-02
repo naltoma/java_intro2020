@@ -44,7 +44,7 @@
       - private boolean dead;
     - コンストラクタとしてname, hitPoint, attackの3つを引数に取り、Enemy,Heroと同等の処理を実行しよう。（dead変数の初期化も忘れないようにしよう）
     - 下記メソッドを作成。
-      - public boolean isDead()
+      - public boolean isDead() // deadの getter method。booleanの場合にはisを使うことが多い。
       - public String getName()
       - public void attack(LivingThing opponent)
         - Enemyクラスではheroを攻撃、Heroクラスではenemyを攻撃するようにしていたが、共通クラスとして作成しているスーパークラスを対象に攻撃するように変更しよう。
