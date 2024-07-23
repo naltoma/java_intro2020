@@ -8,9 +8,9 @@
 
 ---
 ## <a name="step0">想定環境</a>
-- 動作確認日: 2023/8/29
-- MacBook Air (M1, 2020)
-- macOS Ventura 13.5
+- 動作確認日: 2024/7/23
+- MacBook Air (M2, 2023)
+- macOS Sonoma 14.5
 - Apple Silicon版VSCodeインストール済み。
 - JDK未インストール。
 - 備考
@@ -20,7 +20,7 @@
 ## <a name="step1">Step 1. VSCodeを最新版に更新する。</a>
 VSCodeを起動し、``Code``メニューから``更新を確認``し、最新版に更新しよう。
 
-2023年8月29日時点での最新版は 1.81.1。
+2024年7月23日時点での最新版は Version: 1.91.1
 
 ---
 ## <a name="step2">Step 2. VSCodeからOpenJDKのインストール。</a>
@@ -30,16 +30,16 @@ VSCodeを起動し、``Code``メニューから``更新を確認``し、最新�
   - インストール終わったらVSCodeを再起動。
 - JDKのインストール
   - ``⌘ + Shift + P`` を押してコマンドパレットを開き、``java``と入力。そこから ``Java: Install New JDK`` を選ぼう。選んだらその時点での最新安定版を選択し、dmgファイルをダウンロード。ファイルサイズは約200MBあるのでダウンロード完了するまで待とう。
-    - 2023年8月29日時点では 17.0.8+7 で、ダウンロードされるファイル名は ``OpenJDK17U-jdk_aarch64_mac_hotspot_17.0.8_7.dmg`` でした。
+    - 2024年7月23日時点では 21.0.4+7 で、ダウンロードされるファイル名は ``OpenJDK21U-jdk_aarch64_mac_hotspot_21.0.4_7.dmg`` でした。
   - 上記dmgファイルをダブルクリックし、インストールする。指定手順通りにインストールをしよう。特に変更する箇所はなく、デフォルトのままで良い。
-  - 正常終了すると ``Eclipse Temurin 17.0.8+7 to /Library/Java/JavaVirtualMachines/temurin-17.jdk`` にインストールしたという画面が出るはず。これでJDKインストールが終了。インストーラのウィンドウを閉じよう。
+  - 正常終了すると ``Eclipse Temurin 21.0.4+7-LTS to /Library/Java/JavaVirtualMachines/temurin-21.jdk`` にインストールしたという画面が出るはず。これでJDKインストールが終了。インストーラのウィンドウを閉じよう。
 - JDK動作確認
-  - インストールを終えたら、ターミナルを開いて ``java -version`` と実行してみよう。以下のようにバージョンを確認することができればOK。
+  - インストールを終えたら、ターミナルを開いて ``java -version`` と実行してみよう。ハイフンは何故か一つ。以下のようにバージョンを確認することができればOK。
 ```
 oct:tnal% java -version
-openjdk version "17.0.8" 2023-07-18
-OpenJDK Runtime Environment Temurin-17.0.8+7 (build 17.0.8+7)
-OpenJDK 64-Bit Server VM Temurin-17.0.8+7 (build 17.0.8+7, mixed mode)
+openjdk version "21.0.4" 2024-07-16 LTS
+OpenJDK Runtime Environment Temurin-21.0.4+7 (build 21.0.4+7-LTS)
+OpenJDK 64-Bit Server VM Temurin-21.0.4+7 (build 21.0.4+7-LTS, mixed mode)
 ```
 
 ---
@@ -63,7 +63,7 @@ OpenJDKをインストールし終えたら、VSCodeを再起動しよう。
   - (2) ``⌘ + Shift + P`` を押してコマンドパレットを開き、``java``と入力。そこから``Java: Create Java Project`` を選ぼう。
   - (3) プロジェクトの種類として、``No build tools`` を選ぼう。
   - (4) プロジェクトを保存する場所として ``~/prog2/`` を選ぼう。ここは誤解しやすいですが、プロジェクト名をここで選択しないようにしてください。
-  - (5) プロジェクト名として ``sample`` を入力し、Enterキーを押す。
+  - (5) ``Input a Java project name`` と指示されるので、プロジェクト名として ``sample`` を入力し、Enterキーを押す。
   - (6) サンプルコードの確認。
     - 自動的に「Hello, World!」と出力するだけのサンプルプログラムが作成されます。このときのファイル構成は以下のとおりです。この中の ``src/App.java`` を開いてください。
 ```
@@ -90,7 +90,7 @@ oct:tnal% tree
   - case 1: JAVA_HOME の設定が必要かもしれません。今回のようにJDK17をインストールした場合、次のようにしてJAVAHOMEを設定してみてから再度実行してみてください。
 ```
 cd
-echo JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home >> .zshrc
+echo JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home/ >> .zshrc
 source .zshrc
 echo $JAVA_HOME
 ```
@@ -99,5 +99,5 @@ echo $JAVA_HOME
   - case 1: Java Classpath の設定が必要かもしれません。
     - App.javaを開いている状態で ``⌘ + Shift + P`` を押してコマンドパレットを開き、``java``と入力。そこから``Java: Configure Classpath`` を選ぼう。
     - JDK Runtime内の ``Configure Java Runtime`` をクリックしよう。
-    - Java Versionのところから 17 を選ぶか、もしくはペンアイコンをクリックし、``/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home`` を設定しよう。
+    - Java Versionのところから 21 を選ぶか、もしくはペンアイコンをクリックし、``/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home`` を設定しよう。
     - 設定後、App.javaに戻り実行してみよう。
