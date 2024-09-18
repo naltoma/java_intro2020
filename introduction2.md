@@ -32,9 +32,9 @@
 - データ型
   - 基本型（型ではあるが、クラスではない）
     - 整数型: byte, short, int, long
-      - 具体的な違いは **p.49** 参照。
+      - 具体的な違いは **p.51** 参照。特別な理由がなければ、普段はintで良い。
     - 浮動小数点型: float, double
-      - floatとdoubleの違いは調べてみよう。普段はdoubleだけで問題ない。
+      - floatとdoubleの違いは調べてみよう。特別な理由がなければ、普段はdoubleで良い。
     - 文字型: char
       - char型（=1文字）の場合は ``char c = 'a';`` のように、**シングルクォート** で囲うこと。
     - 論理型: boolean
@@ -165,7 +165,7 @@ for(String word: text){
 <hr>
 
 ## <a name="c5">基本ライブラリの利用</a>
-- APIドキュメント: [JDK 14 API Specification](https://docs.oracle.com/en/java/javase/14/docs/api/index.html)
+- APIドキュメント: [JDK 21 API Specification](https://docs.oracle.com/en/java/javase/21/docs/api/index.html)
 
 ### <a name="c5-1">Stringクラスのメソッド</a>
 - [java.lang.String](https://docs.oracle.com/en/java/javase/14/docs/api/java.base/java/lang/String.html)
@@ -301,7 +301,7 @@ do {
 <hr>
 
 ## <a name="c11">ジャンプによる制御</a>
-### <a name="c11-1">switch文（pp.119-）</a>
+### <a name="c11-1">switch文（pp.118-）</a>
 - swich文は、非常に多くの分岐先がある時に有効な構文。if-else文でも同じ処理を書けるが、switch文の方が高速。ただし、(1)すべての条件式が「一致するか否か」を判定する条件式になっており、(2)比較する値が int, char, String である時のみ利用できる。また (3) caseにはリテラルだけが利用できる（caseに変数は書けない）。
 
 ```Java

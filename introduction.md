@@ -158,8 +158,9 @@ public class ExampleAdd {
 ```
 
 - **Javaコード例の動かし方**
-  - step 0: プログラミング2用の作業ディレクトリを用意。
-    - 各自分かりやすいディレクトリを作成しよう。授業資料では ``~/prog2/week1`` として話をすすめる。
+  - step 0: プログラミング2用の作業ディレクトリ（プロジェクト・ディレクトリ。以下プロジェクト）を用意。
+    - 各自分かりやすいプロジェクトを作成しよう。授業資料では ``~/prog2/week1`` として話をすすめる。
+    - 他の名称で用意する場合、ディレクトリ名やプロジェクト名に日本語や記号を含まないように注意。
   - step 1: ソースコードの準備。
     - ExampleAdd.java というファイル名で上記コードを保存。違いを確認するために手打ち推奨。
     - **注意点**
@@ -238,7 +239,7 @@ public class ExampleAdd {
 <hr>
 
 ### <a name="ex1-2">マニュアルの使い方</a>
-- オンラインAPI: [Java SE 16 & JDK 16 API Documentation](https://docs.oracle.com/en/java/javase/16/docs/api/index.html)
+- オンラインAPI: [Java SE 21 & JDK 21 API Documentation](https://docs.oracle.com/en/java/javase/21/docs/api/index.html)
 - System.out.println()メソッドについて調べてみよう。
   - 左メニューの「API Documentation」を選択。
   - 試しに、右上の検索窓に「system」を入力。
@@ -355,6 +356,10 @@ public class CheckOdd {
     - **配列を作成(用意)する際には、変数宣言時に[]を付けて配列であることを明示** する必要がある。
       - 今回の例では「int型の配列」ということを「int[]」として記述している。
       - 一度宣言した配列の要素数を変更する（追加する）ことはできない。要素数を可変にしたい場合にはリストを使おう。（今は不要なので配列を利用する）
+      - 配列を使う際には中身を初期化する（初期値を設定する）必要がある。
+        - 要素が予め分かっている場合には、上記のように ``{要素1, 要素2}`` のように中括弧内で要素を列挙することで初期値を与えることができる。
+        - 要素が分かっていない場合には、要素数をkとすると ``int[] data = new data[k];`` として「k個分のint型配列」を確保することができる。なお各要素の初期値は ``0`` になる。newの意味は後日やります。
+        - 要素も要素数もどちらも指定できない場合には、配列ではなくリストを使おう。（後日やります）
     - 配列内の要素を参照するには ``data[0]`` のように四角カッコでインデックスを指定して参照する必要がある。（ここはPythonのリストと同じ）
       - インデックスは0から始まる。
       - Pythonと異なり、``data[-1]`` で一番最後の要素を参照することはできない。（**後ろからi番目の要素、という指定はNG**）
@@ -591,8 +596,8 @@ public class Main {
 
 ## <a name="ref">参考サイト</a>
 - 公式ドキュメント
-  - APIドキュメント: [Java SE 16 & JDK 16 API Documentation](https://docs.oracle.com/en/java/javase/16/docs/api/index.html)
-    - ドキュメント(言語仕様等): [JDK 16 Documentation](https://docs.oracle.com/en/java/javase/16/)
+  - APIドキュメント: [Java SE 21 & JDK 21 API Documentation](https://docs.oracle.com/en/java/javase/21/docs/api/index.html)
+    - ドキュメント(言語仕様等): [JDK 21 Documentation](https://docs.oracle.com/en/java/javase/21/)
     - ダウンロードも可能。チュートリアルやサンプルコードも多数。
 - Java動画学習
   - [Progate: Java I, II](https://prog-8.com/languages/java)（初めてプログラミングする人向けの解説＋簡易問題のあるサイト。webサイト上で実行もできるので、一歩ずつ確認していきたい人には向いてます。）
