@@ -98,7 +98,7 @@ public class Member {
     String lastName;
 
     /**
-     * @deprecated fullNameに移行するため。
+     * @deprecated nameを近いうちに廃止し、fllName, lastNameに移行します。{@link #Member(int, String, String)}
      */
     @Deprecated
     public Member(int _id, String _name){
@@ -169,7 +169,7 @@ public class Member {
     private String lastName;
 
     /**
-     * @deprecated fullNameに移行するため。
+     * @deprecated nameを近いうちに廃止し、fllName, lastNameに移行します。{@link #Member(int, String, String)}
      */
     @Deprecated
     public Member(int _id, String _name){
@@ -209,7 +209,6 @@ public class Member {
 | public | public | すべてのクラス |
 
 - これまでは「public class」を一つのソースファイルに定義し、そのファイル名を「クラス名.java」として設定した。これに対し「publicじゃないクラス」は複数何個でも記述することが可能だが、それらのクラスはパッケージ外からは直接のアクセスを許可されない。（publicクラス経由での間接的な利用だけが許可された状態になる）
-  - 例: 教科書, pp.512-513
 
 <hr>
 
