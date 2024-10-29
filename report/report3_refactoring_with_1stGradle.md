@@ -51,24 +51,9 @@
     - mkdir で ``~/prog2/report3`` フォルダを作成し、ターミナルで移動。
     - ``~/prog2/report3/`` にいる状態で、ターミナルで ``gradle init`` を実行。
       - [ここのstep 2: Gradleの初期設定](https://github.com/naltoma/java_intro2020/blob/master/Gradle.md#step2)を参考に、プロジェクトを用意。何をやっているのかは次週授業で説明します。
+      - packageは `jp.ac.uryukyu.ie.アカウント名` にしてください。
 - (b) サンプルコードの準備。
   - [ex-gradle2023](https://github.com/naltoma/ex-gradle2023)を参考に、Hero.java, Enemy.java, Main.java, EnemyTest.java の4つを適切に配置しよう。
-    - 下記コマンドを実行してファイルを配置しよう。**なお、mvコマンドではパッケージ名を指定してファイルを移動しているため、``tnal`` を ``自身のアカウント`` に修正して実行すること。**
-
-    ```shell
-    # ~/prog2/report3 に移動し、
-    # gradle init した後で実行することを想定。
-
-    curl -O https://raw.githubusercontent.com/naltoma/ex-gradle2023/main/app/src/main/java/Main.java
-    mv Main.java app/src/main/java/
-    curl -O https://raw.githubusercontent.com/naltoma/ex-gradle2023/main/app/src/main/java/jp/ac/uryukyu/ie/tnal/Enemy.java
-    mv Enemy.java app/src/main/java/jp/ac/uryukyu/ie/tnal/
-    curl -O https://raw.githubusercontent.com/naltoma/ex-gradle2023/main/app/src/main/java/jp/ac/uryukyu/ie/tnal/Hero.java
-    mv Hero.java app/src/main/java/jp/ac/uryukyu/ie/tnal/
-    curl -O https://raw.githubusercontent.com/naltoma/ex-gradle2023/main/app/src/test/java/jp/ac/uryukyu/ie/tnal/EnemyTest.java
-    mv EnemyTest.java app/src/test/java/jp/ac/uryukyu/ie/tnal/
-    ```
-  - 上記コマンドがやっている内容は、具体的には以下の通り。
     - 指定したパッケージの下に [Hero.java](https://github.com/naltoma/ex-gradle2023/blob/main/app/src/main/java/jp/ac/uryukyu/ie/tnal/Hero.java), [Enemy.java](https://github.com/naltoma/ex-gradle2023/blob/main/app/src/main/java/jp/ac/uryukyu/ie/tnal/Enemy.java) を用意する。
       - なお、Gradleプロジェクトの場合には階層構造が以下のようになる。
         - ``プロジェクト名/app/src/main/java/パッケージ名/Hero.java``
@@ -78,9 +63,9 @@
     - test以下に [EnemyTest.java](https://github.com/naltoma/ex-gradle2023/blob/main/app/src/test/java/jp/ac/uryukyu/ie/tnal/EnemyTest.java) を用意する。
       - ``プロジェクト名/app/src/test/java/パッケージ名/EnemyTest.java``
 - (c) ソースコードの修正。
-  - ``app/src/main/java/jp/ac/uryukyu/ie/tnal/Enemy.java`` のパッケージ名を変更。
+  - ``app/src/main/java/パッケージ名/Enemy.java`` のパッケージ名を変更。
     - tnal から自身のアカウントに変更しよう。
-  - ``app/src/main/java/jp/ac/uryukyu/ie/tnal/Hero.java`` のパッケージ名を変更。
+  - ``app/src/main/java/パッケージ名/Hero.java`` のパッケージ名を変更。
     - 同上。
   - ``app/src/main/java/Main.java``
     - importしてるパッケージ名を変更。
