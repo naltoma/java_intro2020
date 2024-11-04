@@ -56,16 +56,16 @@
   - [ex-gradle2023](https://github.com/naltoma/ex-gradle2023)を参考に、Hero.java, Enemy.java, Main.java, EnemyTest.java の4つを適切に配置しよう。
     - 指定したパッケージの下に [Hero.java](https://github.com/naltoma/ex-gradle2023/blob/main/app/src/main/java/jp/ac/uryukyu/ie/tnal/Hero.java), [Enemy.java](https://github.com/naltoma/ex-gradle2023/blob/main/app/src/main/java/jp/ac/uryukyu/ie/tnal/Enemy.java) を用意する。
       - なお、Gradleプロジェクトの場合には階層構造が以下のようになる。
-        - ``プロジェクト名/app/src/main/java/パッケージ名/Hero.java``
-        - ``プロジェクト名/app/src/main/java/パッケージ名/Enemy.java``
+        - ``プロジェクト名/app/src/main/java/パッケージ・フォルダ/Hero.java``
+        - ``プロジェクト名/app/src/main/java/パッケージ・フォルダ/Enemy.java``
     - パッケージ外に [Main.java](https://github.com/naltoma/ex-gradle2023/blob/main/app/src/main/java/Main.java) を用意する。
       - ``プロジェクト名/app/src/main/java/Main.java``
     - test以下に [EnemyTest.java](https://github.com/naltoma/ex-gradle2023/blob/main/app/src/test/java/jp/ac/uryukyu/ie/tnal/EnemyTest.java) を用意する。
-      - ``プロジェクト名/app/src/test/java/パッケージ名/EnemyTest.java``
+      - ``プロジェクト名/app/src/test/java/パッケージ・フォルダ/EnemyTest.java``
 - (c) ソースコードの修正。
-  - ``app/src/main/java/パッケージ名/Enemy.java`` のパッケージ名を変更。
+  - ``app/src/main/java/パッケージ・フォルダ/Enemy.java`` のパッケージ名を変更。
     - tnal から自身のアカウントに変更しよう。
-  - ``app/src/main/java/パッケージ名/Hero.java`` のパッケージ名を変更。
+  - ``app/src/main/java/パッケージ・フォルダ/Hero.java`` のパッケージ名を変更。
     - 同上。
   - ``app/src/main/java/Main.java``
     - importしてるパッケージ名を変更。
